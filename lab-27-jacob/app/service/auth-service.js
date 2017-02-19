@@ -40,9 +40,10 @@ function authService($q, $log, $http, $window){
   };
 
   service.signup = function(user) {
+    console.log('MADE IT HERE 11111111');
     $log.debug('authService.signup()');
 
-    let url = `${__API_URL__}/api/signup`;
+    let url = `http://localhost:3000/api/signup`;
     let config = {
       headers: {
         'Content-Type': 'application/json',
@@ -52,10 +53,13 @@ function authService($q, $log, $http, $window){
 
     return $http.post(url, user, config)
     .then( res => {
+      console.log('MADE IT HERE 222222222 RES.DATA WILL LOG BELOW');
+      console.log(res.data);
       $log.log('success', res.data);
       return setToken(res.data);
     })
     .catch(err => {
+      console.log('MADE IT TO ERROR 33333333');
       $log.error('failure', err.message);
       return $q.reject(err);
     });
@@ -64,7 +68,7 @@ function authService($q, $log, $http, $window){
   service.login = function(user){
     $log.debug('authService.login()');
 
-    let url = `${__API_URL__}/api/login`;
+    let url = `http://localhost:3000/api/login`;
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
       headers: {
