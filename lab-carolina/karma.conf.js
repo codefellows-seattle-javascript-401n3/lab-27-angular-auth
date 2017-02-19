@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Sun Feb 19 2017 11:50:59 GMT-0800 (PST)
-const webpack = require('./webpack.config.js');
-webpack.entry = {};
+const webpackConfig = require('./webpack.config.js');
+webpackConfig.entry = {};
 
 module.exports = function(config) {
   config.set({
@@ -17,7 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/**/*-test.js'
+      'test/**/*-test.js',
     ],
 
 
