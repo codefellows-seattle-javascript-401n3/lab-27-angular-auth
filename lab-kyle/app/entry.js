@@ -8,25 +8,25 @@ const camelcase = require('camelcase');
 const pascalcase = require('pascalcase');
 const uiRouter = require('angular-ui-router');
 
-const cfgram = angular.module('cfgram', [uiRouter]);
+const ngAuth = angular.module('ngAuth', [uiRouter]);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( path => {
-  cfgram.config(context(path));
+  ngAuth.config(context(path));
 });
 
 context = require.context('./view/', true, /\.js$/);
 context.keys().forEach( key => {
   let name = pascalcase(path.basename(key, '.js'));
   let module = context(key);
-  cfgram.controller(name, module);
+  ngAuth.controller(name, module);
 });
 
 context = require.context('./service/', true, /\.js$/);
 context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
-  cfgram.service(name, module);
+  ngAuth.service(name, module);
 });
 
 context = require.context('./component/', true, /\.js$/);
