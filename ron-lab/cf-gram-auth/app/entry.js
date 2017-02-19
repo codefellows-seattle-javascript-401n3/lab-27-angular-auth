@@ -12,6 +12,7 @@ const ngAnimate = require('angular-animate');
 
 const cfgram = angular.module('cfgram', [ngTouch, ngAnimate, uiRouter]);
 
+
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( path => {
   cfgram.config(context(path));
