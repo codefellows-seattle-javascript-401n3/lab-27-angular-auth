@@ -1,7 +1,7 @@
-'use strict';
-
-module.exports = ['$logProvider', logConfig];
-
-function logConfig($logProvider) {
-  $logProvider.debugEnabled(__DEBUG__);
-};
+// 'use strict'
+//
+// module.exports = ['$logProvider', logConfig]
+//
+// function logConfig($logProvider) {
+//   $logProvider.debugEnabled(__DEBUG__)
+// }
