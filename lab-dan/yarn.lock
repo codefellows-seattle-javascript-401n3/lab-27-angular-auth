@@ -64,9 +64,17 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-animate@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.2.tgz#def2a8b9ede53b4b6e234c25f5c64e4b4385df15"
+
 angular-mocks@^1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.6.2.tgz#fbb28208e74d3512769afdb8771f5cc5a99f9128"
+
+angular-touch@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/angular-touch/-/angular-touch-1.6.2.tgz#51f58b841921a088f2be24b6057a3fca1d594452"
 
 angular-ui-router@^0.4.2:
   version "0.4.2"
