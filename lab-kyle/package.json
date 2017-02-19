@@ -7,7 +7,8 @@
     "test": "karma start --single-run",
     "test-watch": "karma start",
     "build": "webpack",
-    "build-watch": "webpack-dev-server --inline - hot"
+    "build-watch": "webpack-dev-server --inline - hot",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "Kyle Winckler",
@@ -18,7 +19,9 @@
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
+    "camelcase": "^4.0.0",
     "css-loader": "^0.26.1",
+    "eslint": "^3.15.0",
     "html-loader": "^0.4.4",
     "node-sass": "^4.5.0",
     "pascalcase": "^0.1.1",
