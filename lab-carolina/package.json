@@ -1,0 +1,9 @@
+{
+  "name": "AngularAuth",
+  "version": "1.0.0",
+  "description": "CF Lab 27",
+  "main": "entry.js",
+  "repository": {},
+  "author": "Carolina Ceja",
+  "license": "MIT"
+}
