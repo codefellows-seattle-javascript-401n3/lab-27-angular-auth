@@ -32,7 +32,7 @@ if (production) {
 };
 
 module.exports = {
-  entry: `${__dirname}/app/entry.js`,
+  entry: `${__dirname}/app/index.js`,
   devtool: production ? false : 'eval',
   plugins,
   output: {

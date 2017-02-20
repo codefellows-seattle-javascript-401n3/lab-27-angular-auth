@@ -19,7 +19,7 @@ module.exports = function(config) {
       'app/index.js': ['webpack'],
     },
     files: [
-      'app/entry.js',
+      'app/index.js',
       'test/**/*-test.js',
       'node_modules/angular-mocks/angular-mocks.js',
     ],
