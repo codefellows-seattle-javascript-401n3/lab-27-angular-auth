@@ -1,4 +1,8 @@
 const HTMLPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const dotenv = require('dotenv')
+
+dotenv.load()
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
@@ -26,6 +30,9 @@ module.exports = {
   plugins: [
     new HTMLPlugin({
       template: `${__dirname}/app/index.html`,
+    }),
+    new webpack.DefinePlugin({
+      __API_URL__: JSON.stringify(process.env.API_URL)
     })
   ]
 }
