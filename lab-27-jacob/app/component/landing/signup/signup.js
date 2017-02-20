@@ -8,15 +8,15 @@ module.exports = {
 
 function SignupController($log, $location, authService) {
   $log.debug('SignupController');
-
+  console.log('-----ABOUT TO LOG AUTH SERVCE------');
+  console.log(authService);
   authService.getToken()
   .then( () => {
-    $location.url('/home');
+    //$location.url('/home');
   });
 
   this.signup = function(user) {
     $log.debug('signupCtrl.signup()');
-    console.log(this.user);
 
     authService.signup(user)
     .then( () => {

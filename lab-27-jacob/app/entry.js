@@ -19,6 +19,7 @@ context.keys().forEach( path => {
 
 context = require.context('./view/', true, /\.js$/);
 context.keys().forEach( key => {
+  console.log('loaded view');
   let name = pascalcase(path.basename(key, '.js'));
   let module = context(key);
   cfgram.controller(name, module);

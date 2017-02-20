@@ -40,7 +40,6 @@ function authService($q, $log, $http, $window){
   };
 
   service.signup = function(user) {
-    console.log('MADE IT HERE 11111111');
     $log.debug('authService.signup()');
 
     let url = `http://localhost:3000/api/signup`;

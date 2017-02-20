@@ -13,7 +13,7 @@ function LoginController($log, $location, authService) {
 
   authService.getToken()
   .then( () => {
-    $location.url('/home');
+    //$location.url('/home');
   });
 
   this.login = function() {
