@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = ['#q', '$log', '$http', '$window', authService]
+module.exports = ['$q', '$log', '$http', '$window', authService]
 
 function authService($q, $log, $http, $window) {
   $log.debug('authService')
@@ -35,6 +35,7 @@ function authService($q, $log, $http, $window) {
   // remove token from service and local storage
   service.logout = function() {
     $log.debug('authService.logout()')
+    console.log('in logout');
     $window.localStorage.removeItem('token')
     token = null
     return $q.resolve()
