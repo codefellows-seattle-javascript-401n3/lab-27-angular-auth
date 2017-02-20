@@ -25,7 +25,7 @@ function authService ($q, $log, $http, $window) {
 
     if (token) return $q.resolve(token)
 
-    token = $windown.localStorage.getItem('token')
+    token = $window.localStorage.getItem('token')
     if (token) return $q.resolve(token)
     return $q.reject(new Error('token not found'))
   }
@@ -63,7 +63,7 @@ function authService ($q, $log, $http, $window) {
   service.login = function (user) {
     $log.debug('authService.login()')
 
-    let url = `${__API_URL__}/api/signup`
+    let url = `${__API_URL__}/api/login`
     let base64 = $window.btoa(`${user.username}:${user.password}`)
     let config = {
       headers: {

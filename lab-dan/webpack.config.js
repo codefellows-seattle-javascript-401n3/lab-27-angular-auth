@@ -4,6 +4,8 @@ const dotenv = require('dotenv')
 
 dotenv.load()
 
+const production = process.env.NODE_ENV === 'production'
+
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
   output: {
@@ -32,7 +34,8 @@ module.exports = {
       template: `${__dirname}/app/index.html`,
     }),
     new webpack.DefinePlugin({
-      __API_URL__: JSON.stringify(process.env.API_URL)
+      __API_URL__: JSON.stringify(process.env.API_URL),
+      __DEBUG__: JSON.stringify(!production)
     })
   ]
 }

@@ -1,5 +1,7 @@
 'use strict'
 
+require('./signup.scss')
+
 module.exports = {
   template: require('./signup.html'),
   controller: ['$log', '$location', 'authService', SignupController],
@@ -7,6 +9,7 @@ module.exports = {
 }
 
 function SignupController($log, $location, authService) {
+  // signup
   let self = this
   $log.debug('SignupController')
 
