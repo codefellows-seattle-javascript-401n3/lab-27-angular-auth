@@ -13,26 +13,26 @@ const ngAnimate = require('angular-animate');
 const cfgram = angular.module('cfgram', [ngTouch, ngAnimate, uiRouter]);
 
 let context = require.context('./config/', true, /\.js$/);
-context.keys().forEach(path => {
+context.keys().forEach( path => {
   cfgram.config(context(path));
 });
 
-context = require.conext('./view/', true, /\.js$/);
-context.keys().forEach(key => {
+context = require.context('./view/', true, /\.js$/);
+context.keys().forEach( key => {
   let name = pascalcase(path.basename(key, '.js'));
   let module = context(key);
   cfgram.controller(name, module);
 });
 
 context = require.context('./service/', true, /\.js$/);
-context.keys().forEach(key => {
+context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
   cfgram.service(name, module);
 });
 
-context = require.context('./component', true, /\.js$/);
-context.keys().forEach(key => {
+context = require.context('./component/', true, /\.js$/);
+context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
   cfgram.component(name, module);

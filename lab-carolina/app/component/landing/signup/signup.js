@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-  template: require('./singup.html'),
+  template: require('./signup.html'),
   controller: ['$log', '$location', 'authService', SignupController],
-  controllerAs: 'signupCtrl',
+  controllerAs: 'signupCtrl'
 };
 
 function SignupController($log, $location, authService) {
@@ -11,13 +11,13 @@ function SignupController($log, $location, authService) {
 
   authService.getToken()
   .then( () => {
-    $location.url('./home');
+    $location.url('/home');
   });
 
   this.signup = function(user) {
-    $log.debug('signupCtrl.singup()');
+    $log.debug('signupCtrl.signup()');
 
-    authService.singup(user)
+    authService.signup(user)
     .then( () => {
       $location.url('/home');
     });

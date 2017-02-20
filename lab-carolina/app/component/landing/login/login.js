@@ -22,6 +22,6 @@ function LoginController($log, $location, authService) {
     authService.login(this.user)
     .then( () => {
       $location.url('/home');
-    }),
+    });
   };
 }
