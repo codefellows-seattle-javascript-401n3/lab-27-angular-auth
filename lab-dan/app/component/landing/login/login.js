@@ -10,7 +10,6 @@ module.exports = {
 
 function LoginController($log, $location, authService) {
   let self = this
-  $log.debug('LoginController')
 
   authService.getToken()
   .then(() => {
@@ -18,8 +17,6 @@ function LoginController($log, $location, authService) {
   })
 
   self.login = function () {
-    $log.debug('loginCtrl.login()')
-
     authService
       .login(self.user)
       .then(() => {

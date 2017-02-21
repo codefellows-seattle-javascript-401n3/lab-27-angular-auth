@@ -1,4 +1,10 @@
-<section>
+<section class="home">
   <h2>{{ homeCtrl.title }}</h2>
-  <button ng-click="homeCtrl.logout()">Log Out</button>
+  <h3>Here's your user information:</h3>
+  <ul>
+    <li ng-repeat="(key, value) in homeCtrl.user">
+      {{ key }}: {{ value }}
+    </li>
+  </ul>
+  <button class="btn" ng-click="homeCtrl.logout()">Log Out</button>
 </section>

@@ -12,11 +12,11 @@ function HomeController ($log, $location, authService) {
     $location.url('/home')
   })
   .catch( err => {
-    $log.debug(err)
     $location.url('/')
   })
 
   self.title = 'Welcome to the home page!'
+  self.user = authService.user
 
   self.logout = function() {
     authService

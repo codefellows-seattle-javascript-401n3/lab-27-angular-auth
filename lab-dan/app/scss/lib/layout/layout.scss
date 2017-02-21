@@ -1,0 +1,42 @@
+@import "../vars.scss";
+
+body {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+}
+
+header, main, footer {
+  padding: 1em;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  max-height: 2em;
+}
+
+input {
+  display: block;
+  width: 98%;
+  min-height: 2em;
+  margin: 1em auto;
+  border: 1px solid black;
+  padding: .2em 0 .2em .4em;
+}
+
+.btn {
+  background: $secondary-gray;
+  color: white;
+  border: 1px solid black;
+  margin: .1em;
+  padding: .3em;
+  min-width: 6em;
+  padding: .4em;
+}
+
+.btn-left {
+  float: right;
+}

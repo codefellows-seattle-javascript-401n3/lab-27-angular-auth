@@ -11,8 +11,7 @@ module.exports = {
 function SignupController($log, $location, authService) {
   // signup
   let self = this
-  $log.debug('SignupController')
-
+  
   authService
     .getToken()
     .then(() => {
@@ -20,8 +19,6 @@ function SignupController($log, $location, authService) {
     })
 
   this.signup = function() {
-    $log.debug('signupCtrl.signup()')
-
     authService
       .signup(self.user)
       .then(() => {

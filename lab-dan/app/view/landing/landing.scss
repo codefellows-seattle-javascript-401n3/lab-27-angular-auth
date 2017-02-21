@@ -1,3 +1,40 @@
-body {
-  background: yellow;
+@import "../../scss/lib/vars.scss";
+
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.join-container {
+  background: $primary-gray;
+  min-width: 40%;
+  border: 1px solid black;
+}
+
+.join-inner {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.left-justify {
+  margin: 1em 0;
+  clear: both;
+  float: right;
+  text-align: right;
+}
+
+.left-justify > * {
+  display: inline;
+}
+
+.header {
+  margin-bottom: 1em;
+  background: $secondary-gray;
+}
+
+.header > h2 {
+  margin: 0;
+  padding: 1em;
+  color: white;
 }

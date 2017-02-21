@@ -1,4 +1,5 @@
-<section class="login-form">
+<section class="form login">
+  login.
   <form name="loginForm" ng-submit="loginCtrl.login()" novalidate>
     <div
       ng-class="{
@@ -27,6 +28,6 @@
         ng-model="loginCtrl.user.password"
         required>
     </div>
-    <button class="btn-std">Sign In</button>
+    <button type="submit" class="btn btn-left">sign in</button>
   </form>
 </section>
