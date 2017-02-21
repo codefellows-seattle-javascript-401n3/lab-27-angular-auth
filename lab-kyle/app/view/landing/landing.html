@@ -26,11 +26,15 @@
       ng-if="!landingCtrl.showSignup">
       <div class="join-inner">
         <login></login>
-        <span>want to signup?</span>
-        <a href="/#/join#signup"
-          ng-click="landingCtrl.showSignup=true">
-          sign up here.
-        </a>
+        <section class="align-right">
+          <div class="form-bot">
+            <span>want to signup?</span>
+            <a href="/#/join#signup"
+            ng-click="landingCtrl.showSignup=true">
+            sign up here.
+            </a>
+          </div>
+        </section>
       </div>
     </div>
 </section>

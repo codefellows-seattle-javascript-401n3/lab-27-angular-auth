@@ -1,6 +1,6 @@
 .landing {
   color: grey * .75;
-  width: 60%;
+  min-width: 60%;
   height: 50em;
   background-color: lightgrey;
   display: flex;
@@ -36,3 +36,4 @@
 }
 
 @import '../../component/landing/signup/_signup';
+@import '../../component/landing/login/_login';
