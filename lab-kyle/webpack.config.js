@@ -32,6 +32,10 @@ module.exports = {
       {
         test: /\.html$/,
         use: 'html-loader'
+      },
+      {
+        test: /\.(jpg|jpeg|svg|bmp|tiff|gif|png)$/,
+        loader: 'file-loader'
       }
     ]
   },

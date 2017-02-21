@@ -1,27 +1,40 @@
 <section class="landing">
 
-  <div class="join-container"
-    ng-if="landingCtrl.showSignup">
-    <div class="join-inner">
-      <signup></signup>
-      <p>already a member?</p>
-      <a href="/#/join#login"
-        ng-click="landingCtrl.showSignup=false">
-        sign in here.
-      </a>
+  <section>
+    <div class="landing-header">
+      <img src="../../assets/cf-logo.png">
+      <h3>cfgram</h3>
     </div>
-  </div>
 
-  <div class="join-container"
-    ng-if="!landingCtrl.showSignup">
-    <div class="join-inner">
-      <login></login>
-      <p>want to signup?</p>
-      <a href="/#/join#signup"
-        ng-click="landingCtrl.showSignup=true">
-        sign up here.
-      </a>
+    <div class="join-container"
+      ng-if="landingCtrl.showSignup">
+      <div class="join-inner">
+        <signup></signup>
+        <section class="align-right">
+          <div class="form-bot">
+            <span>already a member?</span>
+            <a href="/#/join#login"
+            ng-click="landingCtrl.showSignup=false">
+            <b>sign in here.</b>
+            </a>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
+
+    <div class="join-container"
+      ng-if="!landingCtrl.showSignup">
+      <div class="join-inner">
+        <login></login>
+        <span>want to signup?</span>
+        <a href="/#/join#signup"
+          ng-click="landingCtrl.showSignup=true">
+          sign up here.
+        </a>
+      </div>
+    </div>
+</section>
+
+  <div class="landing-footer"></div>
 
 </section>
