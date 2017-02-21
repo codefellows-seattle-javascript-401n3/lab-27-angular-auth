@@ -12,6 +12,12 @@ const ngAnimate = require('angular-animate')
 
 angular.module('angularAuth', [ngTouch, ngAnimate, uiRouter])
 
+angular.module('angularAuth').config(['$httpProvider', corsSettings])
+
+function corsSettings ($httpProvider) {
+  $httpProvider.defaults.useXDomain = true
+}
+
 let context = require.context('./config/', true, /\.js$/)
 context.keys().forEach( path => {
   angular.module('angularAuth').config(context(path))
