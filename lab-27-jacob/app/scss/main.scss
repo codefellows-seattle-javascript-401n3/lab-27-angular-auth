@@ -1,3 +1,18 @@
-html, body {
-  background: orange;
+// html, body {
+//   background: orange;
+// }
+//
+// .signup {
+//   background-color: #d3d3d3;
+//   max-width: 50%;
+//   border-radius: 30%;
+// }
+body {
+  display: grid;
+}
+
+form {
+  padding: 1em;
+  max-width: 30%;
+  position: flex;
 }

@@ -2,7 +2,7 @@
 
 module.exports = ['$q', '$log', '$http', '$window', authService];
 
-function authService($q, $log, $http, $window){
+function authService($q, $log, $http, $window) {
   $log.debug('authService');
 
   let service = {};
@@ -52,19 +52,19 @@ function authService($q, $log, $http, $window){
 
     return $http.post(url, user, config)
     .then( res => {
-      console.log('MADE IT HERE 222222222 RES.DATA WILL LOG BELOW');
-      console.log(res.data);
+      // console.log('MADE IT HERE 222222222 RES.DATA WILL LOG BELOW');
+      // console.log(res.data);
       $log.log('success', res.data);
       return setToken(res.data);
     })
     .catch(err => {
-      console.log('MADE IT TO ERROR 33333333');
+      // console.log('MADE IT TO ERROR 33333333');
       $log.error('failure', err.message);
       return $q.reject(err);
     });
   };
 
-  service.login = function(user){
+  service.login = function(user) {
     $log.debug('authService.login()');
 
     let url = `http://localhost:3000/api/login`;
