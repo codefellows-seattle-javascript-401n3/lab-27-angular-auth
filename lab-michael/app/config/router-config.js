@@ -5,6 +5,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.when('/' , '/join#signup');
   $urlRouterProvider.when('/signup' , '/join#signup');
   $urlRouterProvider.when('/login' , '/join#login');
+  $urlRouterProvider.when('/logout', '/')
 
   let states = [
     {
@@ -21,6 +22,13 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'LandingController',
       controllerAs: 'landingCtrl'
     },
+    {
+      name: 'logout',
+      url: '/logout',
+      template: require('../view/landing/landing.html'),
+      controller: 'LogoutController',
+      controllerAs: 'logoutCtrl'
+    }
   ];
 
   states.forEach( state => {
