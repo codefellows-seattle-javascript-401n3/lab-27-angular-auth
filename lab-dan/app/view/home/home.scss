@@ -2,3 +2,40 @@
   background: white;
   padding: 2em;
 }
+
+.gallery_view {
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.gallery {
+  padding: 1em;
+  width: 20em;
+  height: 20em;
+  margin-top: 1em;
+}
+
+.gallery.ng-enter {
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.gallery.ng-enter-active {
+  opacity: 1;
+}
+
+.gallery ul {
+  list-style-position: inside;
+}
+
+.gallery li {
+  text-align: center;
+}
+
+.gallery img {
+  display: block;
+  margin: 0 auto;
+}

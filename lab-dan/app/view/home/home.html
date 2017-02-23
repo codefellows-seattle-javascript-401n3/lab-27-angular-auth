@@ -3,11 +3,15 @@
 
   <create-gallery></create-gallery>
 
-  <ul>
-    <li ng-repeat="gallery in homeCtrl.galleries">
-      <span>name: {{ gallery.name }}</span>
-      <span>description: {{ gallery.desc }}</span>
-      <span>id: {{gallery._id }}</span>
-    </li>
-  </ul>
+  <h2 class="clear">Your Galleries</h2>
+  <div class="gallery_view">
+    <div class="gallery" ng-repeat="gallery in homeCtrl.galleries">
+      <img src="http://placehold.it/250">
+      <ul>
+        <li>name: {{ gallery.name }}</li>
+        <li>description: {{ gallery.desc }}</li>
+      </ul>
+    </div>
+
+  </div>
 </section>

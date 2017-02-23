@@ -10,12 +10,20 @@ header, main, footer {
   padding: 1em;
 }
 
-main {
-  flex: 1;
+header, footer {
+  flex-shrink: 0;
+}
+
+header {
+  height: 7em;
 }
 
 footer {
-  max-height: 2em;
+  height: 4em;
+}
+
+main {
+  flex: 1;
 }
 
 input {
@@ -39,4 +47,8 @@ input {
 
 .btn-right {
   float: right;
+}
+
+.clear {
+  clear: both;
 }
