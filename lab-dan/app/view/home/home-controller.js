@@ -2,27 +2,39 @@
 
 require('./home.scss')
 
-module.exports = ['$log', '$location', 'authService', HomeController]
+module.exports = [
+  '$log',
+  '$location',
+  '$rootScope',
+  'authService',
+  'galleryService',
+  HomeController
+]
 
-function HomeController ($log, $location, authService) {
+function HomeController ($log, $location, $rootScope, authService, galleryService) {
   let self = this
-
-  authService.getToken()
-  .then(() => {
-    $location.url('/home')
-  })
-  .catch( err => {
-    $location.url('/')
-  })
-
   self.title = 'Welcome to the home page!'
-  self.user = authService.user
+  self.galleries = []
+  let urlChangeEvent = $rootScope.$on('$locationChangeSuccess', () => {
+    self.fetchGalleries()
+  })
 
-  self.logout = function() {
-    authService
-      .logout()
-      .then(() => {
-        $location.url('/')
+  authService
+    .getToken()
+    .then(() => {
+      $location.url('/home')
+    })
+    .catch( err => {
+      $location.url('/')
+    })
+
+  self.fetchGalleries = function () {
+    galleryService
+      .getGalleries()
+      .then( galleries => {
+        self.galleries = galleries
       })
   }
+
+  self.fetchGalleries()
 }

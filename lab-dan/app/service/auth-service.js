@@ -56,7 +56,7 @@ function authService ($q, $log, $http, $window) {
     let base64 = $window.btoa(`${user.username}:${user.password}`)
     let config = {
       headers: {
-        'Content-Type': 'application/json; charset=utf-8',
+        // 'Content-Type': 'application/json; charset=utf-8',
         'Authorization': `Basic ${base64}`
       }
     }
