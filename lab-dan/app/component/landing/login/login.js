@@ -10,15 +10,16 @@ module.exports = {
 
 function LoginController($log, $location, authService) {
   let self = this
+  self.user = null
 
   authService.getToken()
   .then(() => {
     $location.url('/home')
   })
 
-  self.login = function () {
+  self.login = function (user) {
     authService
-      .login(self.user)
+      .login(user)
       .then(() => {
         $location.url('/home')
       })

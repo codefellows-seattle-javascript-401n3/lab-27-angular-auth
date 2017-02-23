@@ -5,7 +5,6 @@ module.exports = ['$q', '$log', '$http', '$window', authService]
 function authService ($q, $log, $http, $window) {
   let service = {}
   let token = null
-  service.user = null
 
   function setToken (_token) {
     if (! _token) {
@@ -30,7 +29,6 @@ function authService ($q, $log, $http, $window) {
   service.logout = function () {
     $window.localStorage.removeItem('token')
     token = null
-    this.user = null
     return $q.resolve()
   }
 
@@ -45,8 +43,7 @@ function authService ($q, $log, $http, $window) {
     return $http
       .post(url, user, config)
       .then( res => {
-        this.user = res.data
-        return setToken(res.data.token)
+        return setToken(res.data)
       })
       .catch( err => {
         $log.error('failure', err.message)
@@ -65,10 +62,9 @@ function authService ($q, $log, $http, $window) {
     }
 
     return $http
-      .post(url,{},config)
+      .get(url, config)
       .then( res => {
-        this.user = res.data
-        return setToken(res.data.token)
+        return setToken(res.data)
       })
       .catch( err => {
         $log.error(err.message)
