@@ -52,13 +52,10 @@ function authService($q, $log, $http, $window) {
 
     return $http.post(url, user, config)
     .then( res => {
-      // console.log('MADE IT HERE 222222222 RES.DATA WILL LOG BELOW');
-      // console.log(res.data);
       $log.log('success', res.data);
       return setToken(res.data);
     })
     .catch(err => {
-      // console.log('MADE IT TO ERROR 33333333');
       $log.error('failure', err.message);
       return $q.reject(err);
     });

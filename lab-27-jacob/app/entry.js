@@ -19,7 +19,6 @@ context.keys().forEach( path => {
 
 context = require.context('./view/', true, /\.js$/);
 context.keys().forEach( key => {
-  console.log('loaded view');
   let name = pascalcase(path.basename(key, '.js'));
   let module = context(key);
   cfgram.controller(name, module);
@@ -29,6 +28,7 @@ context = require.context('./service/', true, /\.js$/);
 context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
+  //same thing as: let module = require('service/auth-service')
   cfgram.service(name, module);
 });
 
