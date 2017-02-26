@@ -42,6 +42,7 @@ function authService($q, $log, $http, $window){
   service.signup = function(user) {
     $log.debug('authService.signup()');
 
+    // let url = `http://localhost:3000/api/signup`;
     let url = `${__API_URL__}/api/signup`;
     let config = {
       headers: {
