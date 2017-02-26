@@ -22,13 +22,13 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'LandingController',
       controllerAs: 'landingCtrl'
     },
-    {
-      name: 'logout',
-      url: '/logout',
-      template: require('../view/landing/landing.html'),
-      controller: 'LogoutController',
-      controllerAs: 'logoutCtrl'
-    }
+    // {
+    //   name: 'logout',
+    //   url: '/logout',
+    //   template: require('../view/landing/landing.html'),
+    //   controller: 'LogoutController',
+    //   controllerAs: 'logoutCtrl'
+    // }
   ];
 
   states.forEach( state => {
