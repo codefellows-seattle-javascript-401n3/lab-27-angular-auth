@@ -7,6 +7,8 @@ const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
+const API_URL = process.env.API_URL || 'http://localhost:3000';
+
 
 dotenv.load();
 
@@ -14,7 +16,7 @@ let plugins = [
   new ExtractTextPlugin('bundle.css'),
   new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
-    __API_URL__: JSON.stringify(process.env.API_URL),
+    __API_URL__: JSON.stringify(API_URL),
     __DEBUG__: JSON.stringify(!production)
   })
 ];
