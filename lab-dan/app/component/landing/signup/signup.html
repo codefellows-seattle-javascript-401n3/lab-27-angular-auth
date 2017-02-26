@@ -1,31 +1,42 @@
-<section class="form signup">
-  sign up.
-  <form class="signupForm"
+<div class="header">
+  <h2>get your own gallery</h2>
+</div>
+<div class="join-inner">
+  <div class="form signup">
+    sign up.
+    <form class="signupForm"
     ng-submit="signupCtrl.signup()"
     no-validate>
-      <div>
-        <input class="input-std"
-        type="text"
-        placeholder="name"
-        ng-minlength="5"
-        ng-model="signupCtrl.user.username" required>
-      </div>
+    <div>
+      <input class="input-std"
+      type="text"
+      placeholder="name"
+      ng-minlength="5"
+      ng-model="signupCtrl.user.username" required>
+    </div>
 
-      <div>
-        <input class="input-std"
-        type="email"
-        placeholder="email"
-        ng-model="signupCtrl.user.email">
-      </div>
+    <div>
+      <input class="input-std"
+      type="email"
+      placeholder="email"
+      ng-model="signupCtrl.user.email">
+    </div>
 
-      <div>
-        <input class="input-std"
-        type="password"
-        placeholder="password"
-        ng-minlength="8"
-        ng-model="signupCtrl.user.password" required>
-      </div>
+    <div>
+      <input class="input-std"
+      type="password"
+      placeholder="password"
+      ng-minlength="8"
+      ng-model="signupCtrl.user.password" required>
+    </div>
 
-      <button type="submit" class="btn btn-right">sign up</button>
+    <button type="submit" class="btn btn-right">sign up</button>
   </form>
-</section>
+  <div class="left-justify">
+    <p>already a member?</p>
+    <a href="/#!/login"
+    ng-click="signupCtrl.goToLogin()">
+    log in here.
+    </a>
+  </div>
+</div>

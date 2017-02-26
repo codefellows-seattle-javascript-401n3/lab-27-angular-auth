@@ -4,11 +4,11 @@ require('./login.scss')
 
 module.exports = {
   template: require('./login.html'),
-  controller: ['$log', '$location', 'authService', LoginController],
+  controller: ['$log', '$location', 'authService', 'signupService', LoginController],
   controllerAs: 'loginCtrl'
 }
 
-function LoginController($log, $location, authService) {
+function LoginController($log, $location, authService, signupService) {
   let self = this
   self.user = null
 
@@ -23,5 +23,10 @@ function LoginController($log, $location, authService) {
       .then(() => {
         $location.url('/home')
       })
+  }
+
+  this.goToSignup = function () {
+    $log.debug('going to signup')
+    signupService.changeStatus()
   }
 }

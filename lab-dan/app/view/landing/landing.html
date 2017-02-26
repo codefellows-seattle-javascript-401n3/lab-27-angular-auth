@@ -1,32 +1,8 @@
 <div class="landing">
   <div class="join-container" ng-if="landingCtrl.showSignup">
-    <div class="header">
-      <h2>This is the header.</h2>
-    </div>
-    <div class="join-inner">
-      <signup></signup>
-      <div class="left-justify">
-        <p>already a member?</p>
-        <a href="/#/join#login"
-        ng-click="landingCtrl.showSignup=false">
-        log in here.
-        </a>
-      </div>
-    </div>
+    <signup></signup>
   </div>
   <div class="join-container" ng-if="!landingCtrl.showSignup">
-    <div class="header">
-      <h2>This is the header.</h2>
-    </div>
-    <div class="join-inner">
-      <login></login>
-      <div class="left-justify">
-        <p>want to signup?</p>
-        <a href="/#/join#signup"
-        ng-click="landingCtrl.showSignup=true">
-        sign up here.
-        </a>
-      </div>
-    </div>
+    <login></login>
   </div>
 </div>

@@ -68,10 +68,6 @@ function galleryService ($log, $q, $http, $window, authService) {
   }
 
   service.getGalleries = function () {
-    if (service.galleries.length) {
-      $log.debug('pulling from service.galleries')
-      return $q.resolve(service.galleries)
-    }
     service.galleries = _getLocalGalleries()
     if (service.galleries) {
       $log.debug('pulling from localStorage')

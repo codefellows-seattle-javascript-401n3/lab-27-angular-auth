@@ -2,10 +2,12 @@
 
 require('./landing.scss')
 
-module.exports = ['$log', '$location', LandingController]
+module.exports = ['$log', '$rootScope', '$location', 'signupService', LandingController]
 
-function LandingController($log, $location) {
+function LandingController($log, $rootScope, $location, signupService) {
   let self = this
-  let url = $location.url()
-  self.showSignup = url === './join#signup' || url === '/join'
+  self.showSignup = signupService.showSignup
+  let urlChangeEvent = $rootScope.$on('$locationChangeSuccess', () => {
+    self.showSignup = signupService.showSignup
+  })
 }

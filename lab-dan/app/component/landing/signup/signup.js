@@ -4,14 +4,14 @@ require('./signup.scss')
 
 module.exports = {
   template: require('./signup.html'),
-  controller: ['$log', '$location', 'authService', SignupController],
-  controllerAs: 'signupCtrl'
+  controller: ['$log', '$location', 'authService', 'signupService', SignupController],
+  controllerAs: 'signupCtrl',
 }
 
-function SignupController($log, $location, authService) {
+function SignupController($log, $location, authService, signupService) {
   // signup
   let self = this
-  
+
   authService
     .getToken()
     .then(() => {
@@ -24,5 +24,10 @@ function SignupController($log, $location, authService) {
       .then(() => {
         $location.url('/home')
       })
+  }
+
+  this.goToLogin = function () {
+    $log.debug('going to login')
+    signupService.changeStatus()
   }
 }
