@@ -14,18 +14,18 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/home',
       template: require('../view/home/home.html'),
       controller: 'HomeController',
-      controllerAs: 'homeCtrl'
+      controllerAs: 'homeCtrl',
     },
     {
       name: 'landing',
       url: '/join',
       template: require('../view/landing/landing.html'),
       controller: 'LandingController',
-      controllerAs: 'landingCtrl'
+      controllerAs: 'landingCtrl',
     },
   ];
 
   states.forEach( state => {
     $stateProvider.state(state);
   });
-};
+}
