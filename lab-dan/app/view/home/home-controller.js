@@ -36,5 +36,13 @@ function HomeController ($log, $location, $rootScope, authService, galleryServic
       })
   }
 
+  self.showUpdateForm = function () {
+    galleryService.showUpdateForm = true
+  }
+
+  self.showDeleteForm = function () {
+    galleryService.showDeleteForm = true
+  }
+
   self.fetchGalleries()
 }

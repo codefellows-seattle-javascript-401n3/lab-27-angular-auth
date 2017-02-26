@@ -52,3 +52,15 @@ input {
 .clear {
   clear: both;
 }
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.centered_items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

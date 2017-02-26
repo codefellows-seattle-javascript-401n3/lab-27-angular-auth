@@ -1,3 +1,5 @@
+@import "../../scss/lib/vars.scss";
+
 .home {
   background: white;
   padding: 2em;
@@ -12,10 +14,15 @@
 }
 
 .gallery {
-  padding: 1em;
-  width: 20em;
-  height: 20em;
-  margin-top: 1em;
+  // flex: auto;
+  padding: 1.5em;
+  margin: 1em;
+}
+
+.gallery:hover {
+  background: $primary-red;
+  color: $white;
+  cursor: pointer;
 }
 
 .gallery.ng-enter {
@@ -38,4 +45,8 @@
 .gallery img {
   display: block;
   margin: 0 auto;
+}
+
+.gallery p {
+  text-align: center;
 }
