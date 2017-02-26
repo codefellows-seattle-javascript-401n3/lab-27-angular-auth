@@ -4,11 +4,11 @@ require('./_navbar.scss');
 
 module.exports = {
   template: require('./navbar.html'),
-  controller: ['$log', '$location', '$rootScope', 'authService', NavbarController],
+  controller: ['$log', '$location', '$rootScope', 'authService', 'galleryService', NavbarController],
   controllerAs: 'navbarCtrl'
 };
 
-function NavbarController($log, $location, $rootScope, authService) {
+function NavbarController($log, $location, $rootScope, authService, galleryService) {
   $log.debug('NavbarController');
 
   this.checkPath = function() {
@@ -24,7 +24,7 @@ function NavbarController($log, $location, $rootScope, authService) {
       });
     }
   };
-  this.checkPath();
+  // this.checkPath();
 
   $rootScope.$on('$locationChangeSuccess', () => {
     this.checkPath();
@@ -38,4 +38,14 @@ function NavbarController($log, $location, $rootScope, authService) {
       $location.url('/');
     });
   };
+
+  this.newGallery = function() {
+    $log.log('navbarCtrl.newGallery()')
+    authSerivce.getToken()
+    .then((token) => {
+      $location.url(`/gallery/${token.substring(0,10)}`)
+    });
+    
+
+  }
 }

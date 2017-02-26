@@ -13,28 +13,33 @@ function galleryService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then(token => {
-      let url = `http://localhost:3000/api/gallery`;
-      let config = {
+      let req = {
+        method: 'POST',
+        url: 'http://localhost:3000/api/gallery',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: `bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`
+        },
+        data: {name: gallery.name, desc: gallery.desc}
       };
-      return $http.post(url, gallery, config);
+      return $http(req);
     })
     .then(res => {
+      console.log('-----MADE IT INTO RES------');
       $log.log('gallery created');
       let gallery = res.data;
       service.galleries.unshift(gallery);
       return gallery;
     })
     .catch(err => {
-      $log.error(err.message);
+      console.log('------MADE IT INTO ERROR-----');
+      console.log(err)
+      //$log.error(err.message);
       return $q.reject(err);
     });
   };
-  
+
   service.deleteGalleries = function(galleryID, galleryData) {
     return authService.getToken()
     .then(token => {
@@ -70,6 +75,7 @@ function galleryService($q, $log, $http, authService) {
       .catch(err => {
         $log.error(err.message);
         return $q.reject(err);
-    });
+      });
   };
+  return service;
 }

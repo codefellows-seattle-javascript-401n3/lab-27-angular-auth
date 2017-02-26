@@ -18,4 +18,11 @@ function CreateGalleryController($log, galleryService) {
       this.gallery.desc = null;
     });
   };
+  this.showGallArray = function() {
+    if (galleryService.galleries.length) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 }

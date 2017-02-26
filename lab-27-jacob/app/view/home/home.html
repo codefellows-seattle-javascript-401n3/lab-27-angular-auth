@@ -1,6 +1,16 @@
 <section class="home">
-  <h2>welcome home.</h2>
-  <a href="/#/join#login">
-  <button type="button" ng-click="homeCtrl.logOut()">LOGOUT</button>
-</a>
+  <h2 class = "jumbotron">Welcome Home</h2>
+  <create-gallery></create-gallery>
+  <table class = "table">
+    <tr>
+      <th>NAME</th>
+      <th>DESCRIPTION</th>
+      <th>ID</th>
+    </tr>
+  <tr ng-repeat="gallery in homeCtrl.galleries">
+    <td> {{ gallery.name }} </td>
+    <td> {{ gallery.desc }} </td>
+    <td> {{ gallery._id }} </td>
+  </tr>
+</table>
 </section>
