@@ -5,26 +5,6 @@
 
   <h2 class="clear">Your Galleries</h2>
   <div class="gallery_view group">
-    <div class="gallery group" ng-repeat="gallery in homeCtrl.galleries">
-      <div>
-        <img src="http://placehold.it/250">
-        <p>
-          name: {{ gallery.name }}
-        </p>
-        <p>
-          description: {{ gallery.desc }}
-        </p>
-        <div class="centered_items">
-          <button class="btn" type="button" name="edit" ng-click="homeCtrl.showUpdateForm()">edit</button>
-          <button class="btn" type="button" name="delete" ng-click="homeCtrl.showDeleteForm()">delete</button>
-        </div>
-      </div>
-      <div>
-        <update-gallery></update-gallery>
-      </div>
-      <div>
-        <delete-gallery></delete-gallery>
-      </div>
-    </div>
+    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
   </div>
 </section>

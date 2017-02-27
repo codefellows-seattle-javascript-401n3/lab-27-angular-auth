@@ -4,27 +4,33 @@ require('./update-gallery.scss')
 
 module.exports = {
   template: require('./update-gallery.html'),
-  controller: ['$log', 'galleryService', UpdateGalleryController],
-  controllerAs: 'updateGalleryCtrl'
+  controller: ['$log', '$scope', 'galleryService', UpdateGalleryController],
+  controllerAs: 'updateGalleryCtrl',
+  bindings: {
+    gallery: '<'
+  }
 }
 
-function UpdateGalleryController ($log, galleryService) {
+function UpdateGalleryController ($log, $scope, galleryService) {
   let self = this
-  self.gallery = null
-  self.showUpdateForm = galleryService.showUpdateForm
+  self.galleryUpdate = null
 
   self.updateGallery = function () {
+    $log.debug('update gallery called')
+    if (!self.galleryUpdate) return self.cancel()
+    self.galleryUpdate._id = self.gallery._id
     galleryService
-      .updateGallery(self.gallery)
+      .updateGallery(self.galleryUpdate)
       .then( () => {
-        self.gallery.name = null
-        self.gallery.desc = null
+        $scope.$emit('hideUpdate')
+        // self.gallery.name = null
+        // self.gallery.desc = null
         // $location.url('/')
       })
   }
 
-  self.cancel = function () {
-    galleryService.showUpdateForm = false
+  self.cancel = function() {
+    $log.debug('cancel called')
+    $scope.$emit('hideUpdate')
   }
-
 }

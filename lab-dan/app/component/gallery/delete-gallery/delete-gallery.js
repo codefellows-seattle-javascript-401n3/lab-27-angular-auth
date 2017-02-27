@@ -4,26 +4,28 @@ require('./delete-gallery.scss')
 
 module.exports = {
   template: require('./delete-gallery.html'),
-  controller: ['$log', 'galleryService', DeleteGalleryController],
-  controllerAs: 'deleteGalleryCtrl'
+  controller: ['$log', '$scope', 'galleryService', DeleteGalleryController],
+  controllerAs: 'deleteGalleryCtrl',
+  bindings: {
+    gallery: '<'
+  }
 }
 
-function DeleteGalleryController ($log, galleryService) {
+function DeleteGalleryController ($log, $scope, galleryService) {
   let self = this
-  self.gallery = null
 
   self.deleteGallery = function () {
+    $log.debug('deleting gallery')
     galleryService
-      .deleteGallery()
+      .deleteGallery(self.gallery)
       .then( () => {
-        self.gallery.name = null
-        self.gallery.desc = null
+        $scope.$emit('hideDelete')
         // $location.url('/')
       })
   }
 
   self.cancel = function () {
-    galleryService.showDeleteForm = false
+    $scope.$emit('hideDelete')
   }
 
 }

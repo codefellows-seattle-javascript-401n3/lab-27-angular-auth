@@ -1,0 +1,21 @@
+<div class="gallery group">
+  <div>
+    <img src="http://placehold.it/250">
+    <p>
+      name: {{ galleryItemCtrl.gallery.name }}
+    </p>
+    <p>
+      description: {{ galleryItemCtrl.gallery.desc }}
+    </p>
+    <div class="centered_items">
+      <button class="btn" type="button" name="edit" ng-click="galleryItemCtrl.changeUpdateDisplayStatus()">edit</button>
+      <button class="btn" type="button" name="delete" ng-click="galleryItemCtrl.changeDeleteDisplayStatus()">delete</button>
+    </div>
+  </div>
+  <div ng-show="galleryItemCtrl.displayUpdateForm">
+    <update-gallery gallery="galleryItemCtrl.gallery"></update-gallery>
+  </div>
+  <div ng-show="galleryItemCtrl.displayDeleteForm">
+    <delete-gallery gallery="galleryItemCtrl.gallery"></delete-gallery>
+  </div>
+</div>

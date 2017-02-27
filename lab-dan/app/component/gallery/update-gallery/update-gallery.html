@@ -1,4 +1,4 @@
-<div class="update_gallery clear" ng-show="false">
+<div class="update_gallery clear">
   <h4>Update Gallery</h4>
   <form name="updateGalleryForm"
     class="gallery-form"
@@ -6,13 +6,22 @@
 
     <fieldset>
       <label for="name">name</label>
-      <input name="name" class="input-std" type="text" ng-model="updateGalleryCtrl.gallery.name" required>
+      <input
+        name="name"
+        class="input-std"
+        type="text"
+        placeholder="{{ updateGalleryCtrl.gallery.name }}"
+        ng-model="updateGalleryCtrl.galleryUpdate.name">
       <label for="desc">description</label>
-      <input name="desc" class="input-std" ng-model="updateGalleryCtrl.gallery.desc" required>
+      <input
+        name="desc"
+        class="input-std"
+        placeholder="{{ updateGalleryCtrl.gallery.desc }}"
+        ng-model="updateGalleryCtrl.galleryUpdate.desc">
     </fieldset>
+    <div class="centered_items">
+      <button class="btn" type="button" name="cancel" ng-click="updateGalleryCtrl.cancel()">cancel</button>
+      <button class="btn" type="submit">update</button>
+    </div>
   </form>
-  <div class="centered_items">
-    <button class="btn" type="button" name="cancel" ng-click="updateGalleryCtrl.cancel()">cancel</button>
-    <button class="btn" type="save" name="update" form="updateGalleryForm">update</button>
-  </div>
 </div>

@@ -12,8 +12,6 @@ module.exports = [
 function galleryService ($log, $q, $http, $window, authService) {
   const localStorageKey = 'galleries'
   let service = {}
-  service.showUpdateForm = false
-  service.showDeleteForm = false
   service.galleries = []
 
   service.createGallery = function (gallery) {
