@@ -15,6 +15,8 @@ function UpdateGalleryController ($log, $scope, galleryService) {
   let self = this
   self.galleryUpdate = null
 
+  $log.debug(self.gallery)
+
   self.updateGallery = function () {
     $log.debug('update gallery called')
     if (!self.galleryUpdate) return self.cancel()
@@ -31,6 +33,6 @@ function UpdateGalleryController ($log, $scope, galleryService) {
 
   self.cancel = function() {
     $log.debug('cancel called')
-    $scope.$emit('hideUpdate')
+    $scope.$emit('cancelUpdate')
   }
 }

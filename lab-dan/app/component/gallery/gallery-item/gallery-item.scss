@@ -1,9 +1,11 @@
 @import "../../../scss/lib/vars.scss";
 
 .gallery {
-  // flex: auto;
+  flex: auto;
   padding: 1.5em;
   margin: 1em;
+  max-width: 17em;
+  min-height: 28em;
 }
 
 .gallery:hover {
@@ -36,4 +38,6 @@
 
 .gallery p {
   text-align: center;
+  max-width: 16em;
+  margin: 1em auto;
 }
