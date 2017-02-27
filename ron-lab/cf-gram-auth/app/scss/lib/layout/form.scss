@@ -5,10 +5,49 @@ form {
   flex-direction: column;
   margin: $gutter-std;
 }
-input {
-  width: 100%;
+.input-std {
+  width: 90%;
   font-size: 1em;
-  height: 1em;
+  height: 2.5em;
   padding: .25em;
-  border-radius: .25em;
+  border-radius: .40em;
+  padding-left: 1em;
+}
+.btn-std {
+  width: 25%;
+}
+fieldset {
+  margin: .5em;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  background-color: grey;
+  width: 100%;
+  padding: .5em;
+}
+.header-div {
+  display: flex;
+  flex-direction: row;
+}
+.btn-header {
+  padding: 1% 5%;
+  background: $btn-primary;
+  color: $white;
+  font-size: 2vw;
+  border: none;
+  border-radius: $btn-radius;
+  cursor: pointer;
+  transition: 350ms all;
+  margin: 1em;
+
+  &:hover {
+    background: $brand-secondary;
+    color: $btn-primary;
+  }
+}
+.cfgram-header {
+  margin-top: .675em;
 }

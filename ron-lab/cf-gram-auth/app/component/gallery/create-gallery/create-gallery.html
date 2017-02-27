@@ -3,6 +3,16 @@
     class="gallery-form"
     ng-submit="createGalleryCtrl.createGallery()">
 
+    <header>
+      <div class="header-div">
+      <img src="../../../assets/img/cf-logo-min.png" alt="cf-logo">
+      <h1 class="cfgram-header"> cfgram</h1>
+    </div>
+      <button class="btn-header">sign out</button>
+    </header>
+
+    <h1>Create a new gallery.</h1>
+
     <fieldset>
       <input placeholder="gallery name" name="name" class="input-std" type="text" ng-model="createGalleryCtrl.gallery.name" required>
     </fieldset>
@@ -12,5 +22,14 @@
     </fieldset>
 
     <button class="btn-std" type="submit">create gallery</button>
+
+    <h2>Galleries:</h2>
+
+    <!-- <fieldset>
+      <section>
+
+      </section>
+    </fieldset> -->
+
   </form>
 </section>
