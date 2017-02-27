@@ -18,8 +18,8 @@ function galleryService($q, $log, $http, authService) {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       };
 
       return $http.post(url, gallery, config);
@@ -28,6 +28,7 @@ function galleryService($q, $log, $http, authService) {
       $log.log('gallery created');
       let gallery = res.data;
       service.galleries.unshift(gallery);
+      $log.log('gallery: ', gallery);
       return gallery;
     })
     .catch( err => {
@@ -43,8 +44,8 @@ function galleryService($q, $log, $http, authService) {
       let config = {
         headers: {
           Accept: 'application/json',
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       };
     });
   };
@@ -58,8 +59,8 @@ function galleryService($q, $log, $http, authService) {
       let config = {
         headers: {
           Accept: 'application/json',
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       };
 
       return $http.get(url, config);
@@ -76,4 +77,4 @@ function galleryService($q, $log, $http, authService) {
   };
 
   return service;
-};
+}

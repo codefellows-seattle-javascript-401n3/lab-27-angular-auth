@@ -48,7 +48,7 @@ function authService($q, $log, $http, $window){
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-      }
+      },
     };
 
     return $http.post(url, user, config)
@@ -71,7 +71,7 @@ function authService($q, $log, $http, $window){
       headers: {
         Accept: 'application/json',
         Authorization: `Basic ${base64}`,
-      }
+      },
     };
 
     return $http.get(url, config)
