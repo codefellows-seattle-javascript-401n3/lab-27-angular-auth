@@ -1,11 +1,15 @@
+@import "../../scss/lib/theme/vars";
+
 body, html {
   width: 100%;
   height: 100%;
   font-family: helvetica;
 }
-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background: lavender;
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
   }
