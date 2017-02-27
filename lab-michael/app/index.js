@@ -1,6 +1,8 @@
 'use strict';
 
 require('./scss/main.scss');
+// require('dotenv').config();
+
 
 const path = require('path');
 const angular = require('angular');
