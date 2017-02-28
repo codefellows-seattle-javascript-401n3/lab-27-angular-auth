@@ -18,4 +18,8 @@ function CreateGalleryController($log, galleryService) {
       this.gallery.desc = null;
     });
   };
+
+  this.deleteGallery = function() {
+    
+  };
 }
