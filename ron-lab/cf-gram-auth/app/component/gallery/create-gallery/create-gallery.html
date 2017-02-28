@@ -8,7 +8,7 @@
       <img src="../../../assets/img/cf-logo-min.png" alt="cf-logo">
       <h1 class="cfgram-header"> cfgram</h1>
     </div>
-      <button class="btn-header">sign out</button>
+      <button class="btn-header" type="submit">sign out</button>
     </header>
 
     <h1>Create a new gallery.</h1>
@@ -20,8 +20,8 @@
     <fieldset>
       <input placeholder="gallery description" name="desc" class="input-std" ng-model="createGalleryCtrl.gallery.desc" required>
     </fieldset>
-
-    <button class="btn-std-create-gallery" type="submit">create gallery</button>
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> The below ng-click is just a thought, i dont know how to connect this button to the function.. -->
+    <button class="btn-std-create-gallery" type="submit" ng-click="createGalleryCtrl.gallery.deleteGallery()" required>create gallery</button>
 
   </form>
 </section>

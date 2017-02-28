@@ -5,9 +5,10 @@ header {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 2em;
-  background-color: grey;
-  width: 100%;
+  background-color: $btn-primary * 2;
+  width: 95%;
   padding: .5em;
+  color: white;
 }
 
 .header-div {
@@ -15,7 +16,7 @@ header {
   flex-direction: row;
 }
 
-.btn-header, .btn-std, .btn-std-create-gallery {
+.btn-header, .btn-std, .btn-std-create-gallery, .btn-std-delete {
   width: 6em;
   height: 3em;
   padding: 1% 5%;
@@ -35,7 +36,14 @@ header {
 }
 .btn-std-create-gallery {
   margin-left: 17em;
-  padding: .5em;
+}
+.btn-std-delete {
+  background: $btn-primary * 5;
+  color: $btn-primary;
+}
+.btn-header {
+  background: $btn-primary * 6;
+  color: $btn-primary * 3;
 }
 
 .cfgram-header {
@@ -62,6 +70,8 @@ fieldset {
 }
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 .gallery-container {
+  // display: flex;
+  // flex-wrap: wrap;
   overflow: auto;
   margin: 5%;
   height: 25em;
@@ -81,8 +91,11 @@ fieldset {
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 footer {
-  width: 100%;
+  width: 85%;
   height: 5em;
   background-color: $brand-primary * 2.5;
   margin-top: 8em;
+  text-align: right;
+  padding-right: 3em;
+  padding-top: 3em;
 }

@@ -1,18 +1,23 @@
 <section class="home">
+
   <create-gallery></create-gallery>
+  
   <h1>Galleries:</h1>
     <div class="gallery-container">
       <ul>
         <li ng-repeat="gallery in homeCtrl.galleries">
-          <div> name: {{gallery.name}} </div>
-          <div> description: {{gallery.desc}}</div>
-          <div> id: {{gallery._id}} </div>
+          <div>image = {
+            <div> name: {{gallery.name}} </div>
+            <div> description: {{gallery.desc}} </div>
+            <div> id: {{gallery._id}} </div>
+          }
+        </div>
         </li>
       </ul>
     </div>
   <div class="btn-gallery-div">
+    <button class="btn-std-delete" type="submit">delete</button>
     <button class="btn-std" type="submit">edit</button>
-    <button class="btn-std" type="submit">delete</button>
   </div>
-    <footer><h2></h2></footer>
+    <footer><h2>cfgram2016&copy;</h2></footer>
   </section>
