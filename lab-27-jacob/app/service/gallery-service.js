@@ -34,24 +34,24 @@ function galleryService($q, $log, $http, authService) {
     })
     .catch(err => {
       console.log('------MADE IT INTO ERROR-----');
-      console.log(err)
+      console.log(err);
       //$log.error(err.message);
       return $q.reject(err);
     });
   };
-
-  service.deleteGalleries = function(galleryID, galleryData) {
-    return authService.getToken()
-    .then(token => {
-      let url = `http://localhost:3000/api/gallery/${galleryID}`;
-      let config = {
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      };
-    });
-  };
+  //
+  // service.deleteGalleries = function(galleryID, galleryData) {
+  //   return authService.getToken()
+  //   .then(token => {
+  //     let url = `http://localhost:3000/api/gallery/${galleryID}`;
+  //     let config = {
+  //       headers: {
+  //         Accept: 'application/json',
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     };
+  //   });
+  // };
 
   service.fetchGalleries = function() {
     $log.debug('galleryService.fetchGalleries()');
@@ -76,6 +76,66 @@ function galleryService($q, $log, $http, authService) {
         $log.error(err.message);
         return $q.reject(err);
       });
+  };
+  service.updateGallery = function(galleryID, galleryData) {
+    $log.debug('galleryService.updateGallery()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/gallery/${galleryID}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      return $http.put(url, galleryData, config);
+    })
+    .then(res => {
+      for (let i=0; i < service.galleries.length; i++) {
+        let current = service.galleries[i];
+        if(current._id === galleryID) {
+          service.galleries[i] = res.data;
+          break;
+        }
+      }
+      return res.data;
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.deleteGallery = function(galleryID) {
+    console.log('-----MADE IT IN HERE-----');
+    console.log(galleryID);
+    $log.debug('galleryService.updateGallery()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/gallery/${galleryID}`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .then(() => {
+      for(let i=0; i< service.galleries.length; i++) {
+        let current = service.galleries[i];
+        if(current._id === galleryID) {
+          service.galleries.splice(i, 1);
+          break;
+        }
+      }
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
   };
   return service;
 }

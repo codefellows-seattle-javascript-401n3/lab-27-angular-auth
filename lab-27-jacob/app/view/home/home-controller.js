@@ -2,15 +2,33 @@
 
 require('./_home.scss');
 
-module.exports = ['$log', '$location', 'authService', 'galleryService', HomeController];
+module.exports = ['$log', '$rootScope', '$location', 'authService', 'galleryService', HomeController];
 
 
-function HomeController($log, $location, authService, galleryService) {
+function HomeController($log, $rootScope, $location, authService, galleryService) {
   $log.debug('HomeController');
+
+  this.galleries = [];
+
   this.logOut = function() {
     authService.logout()
     .then(() => $location.url('/join/signup'));
   };
 
-  this.galleries = galleryService.galleries;
+  this.fetchGalleries = function() {
+    galleryService.fetchGalleries()
+    .then(galleries => {
+      this.galleries = galleries;
+    });
+  };
+
+  this.fetchGalleries();
+
+  this.deleteGallery = function(galleryID) {
+    galleryService.deleteGallery(galleryID);
+  };
+
+  $rootScope.$on('$locationChangeSuccess', () => {
+    this.fetchGalleries();
+  });
 }

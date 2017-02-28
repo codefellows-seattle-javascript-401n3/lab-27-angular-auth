@@ -11,6 +11,10 @@
     <td> {{ gallery.name }} </td>
     <td> {{ gallery.desc }} </td>
     <td> {{ gallery._id }} </td>
+    <td>
+      <button class="btn-std" ng-click="homeCtrl.deleteGallery(gallery._id)">Delete</button>
+      <button class="btn-std" ng-click="homeCtrl.editGallery()">Edit</button>
+    </td>
   </tr>
 </table>
 </section>
