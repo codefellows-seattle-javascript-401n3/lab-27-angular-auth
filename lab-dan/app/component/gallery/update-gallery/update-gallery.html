@@ -11,14 +11,16 @@
         class="input-std"
         type="text"
         placeholder="{{ updateGalleryCtrl.gallery.name }}"
-        ng-model="updateGalleryCtrl.galleryUpdate.name">
+        ng-model="updateGalleryCtrl.galleryUpdate.name"
+        required>
       <label for="desc">description</label>
       <input
         name="desc"
         class="input-std"
         type="text"
         placeholder="{{ updateGalleryCtrl.gallery.desc }}"
-        ng-model="updateGalleryCtrl.galleryUpdate.desc">
+        ng-model="updateGalleryCtrl.galleryUpdate.desc"
+        required>
     </fieldset>
     <div class="centered_items">
       <button class="btn" type="button" name="cancel" ng-click="updateGalleryCtrl.cancel()">cancel</button>

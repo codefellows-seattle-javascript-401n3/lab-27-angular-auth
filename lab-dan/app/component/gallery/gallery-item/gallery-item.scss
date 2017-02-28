@@ -4,8 +4,10 @@
   flex: auto;
   padding: 1.5em;
   margin: 1em;
-  max-width: 17em;
+  // max-width: 18em;
   min-height: 28em;
+  box-shadow: .5em .5em 1em $primary-gray;
+  border: 1px solid $primary-gray;
 }
 
 .gallery:hover {
@@ -15,7 +17,7 @@
 }
 
 .gallery.ng-enter {
-  transition: 1.5s;
+  transition: 2s;
   opacity: 0;
 }
 
@@ -40,4 +42,21 @@
   text-align: center;
   max-width: 16em;
   margin: 1em auto;
+}
+
+.card {
+  min-width: 18em;
+}
+
+// .card.ng-hide-add,
+// .card.ng-hide-remove {
+//   transition: background 0.5s linear;
+// }
+
+.name {
+  min-height: 2em;
+}
+
+.description {
+  min-height: 3em;
 }

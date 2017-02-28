@@ -26,6 +26,10 @@ main {
   flex: 1;
 }
 
+fieldset {
+  border: none;
+}
+
 input {
   display: block;
   width: 98%;

@@ -1,10 +1,10 @@
 <div class="gallery group">
-  <div>
+  <div class="card" ng-show="!galleryItemCtrl.displayUpdateForm && !galleryItemCtrl.displayDeleteForm">
     <img src="http://placehold.it/250">
-    <p>
+    <p class="name">
       name: {{ galleryItemCtrl.gallery.name }}
     </p>
-    <p>
+    <p class="description">
       description: {{ galleryItemCtrl.gallery.desc }}
     </p>
     <div class="centered_items">
@@ -12,10 +12,10 @@
       <button class="btn" type="button" name="delete" ng-click="galleryItemCtrl.changeDeleteDisplayStatus()">delete</button>
     </div>
   </div>
-  <div ng-show="galleryItemCtrl.displayUpdateForm">
+  <div class="card" ng-show="galleryItemCtrl.displayUpdateForm">
     <update-gallery gallery="galleryItemCtrl.gallery"></update-gallery>
   </div>
-  <div ng-show="galleryItemCtrl.displayDeleteForm">
+  <div class="card" ng-show="galleryItemCtrl.displayDeleteForm">
     <delete-gallery gallery="galleryItemCtrl.gallery"></delete-gallery>
   </div>
 </div>

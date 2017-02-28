@@ -16,10 +16,10 @@ function GalleryItemController ($log, $scope, galleryService) {
   self.displayUpdateForm = false
   self.displayDeleteForm = false
   let cancelUpdateEvent = $scope.$on('hideUpdate', () => {
-    self.changeUpdateDisplayStatus()
+    return self.changeUpdateDisplayStatus()
   })
   let cancelDeleteEvent = $scope.$on('hideDelete', () => {
-    self.changeDeleteDisplayStatus()
+    return self.changeDeleteDisplayStatus()
   })
 
   self.changeUpdateDisplayStatus = function () {

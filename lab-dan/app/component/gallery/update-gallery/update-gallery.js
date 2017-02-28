@@ -15,12 +15,19 @@ function UpdateGalleryController ($log, $scope, galleryService) {
   let self = this
   self.galleryUpdate = null
 
-  $log.debug(self.gallery)
+  self.$onInit = () => {
+    $log.debug(self.gallery)
+    self.galleryUpdate = {
+      _id: self.gallery._id,
+      name: self.gallery.name,
+      desc: self.gallery.desc
+    }
+  }
 
   self.updateGallery = function () {
     $log.debug('update gallery called')
-    if (!self.galleryUpdate) return self.cancel()
-    self.galleryUpdate._id = self.gallery._id
+    // if (!self.galleryUpdate) return self.cancel()
+    // self.galleryUpdate._id = self.gallery._id
     galleryService
       .updateGallery(self.galleryUpdate)
       .then( () => {
@@ -33,6 +40,11 @@ function UpdateGalleryController ($log, $scope, galleryService) {
 
   self.cancel = function() {
     $log.debug('cancel called')
-    $scope.$emit('cancelUpdate')
+    self.galleryUpdate = {
+      _id: self.gallery._id,
+      name: self.gallery.name,
+      desc: self.gallery.desc
+    }
+    $scope.$emit('hideUpdate')
   }
 }
