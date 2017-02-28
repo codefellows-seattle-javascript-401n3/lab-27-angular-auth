@@ -1,0 +1,13 @@
+
+<section class="home">
+  <h2>Welcome Home.</h2>
+  <create-gallery></create-gallery>
+  <ul>
+    <li ng-repeat="gallery in homeCtrl.galleries">
+      <span>Name: {{ gallery.name }}</span>
+      <span>Description: {{ gallery.desc }}</span>
+      <span>ID#: {{ gallery.id }}</span>
+    </li>
+  </ul>
+  <!-- <button type="button" name="button" ng-click="authService.logout()">Log Out</button> -->
+</section>

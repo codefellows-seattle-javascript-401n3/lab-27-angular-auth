@@ -1,0 +1,26 @@
+<section class="signup">
+  <h2>Why don't we get you all signed up?</h2>
+  <form class="signup-form"
+    ng-submit="signupCtrl.signup(signupCtrl.user)"
+    no-validate>
+
+      <input class="input-std field"
+        type="text"
+        placeholder="name"
+        ng-minlength="4"
+        ng-model="signupCtrl.user.username" required>
+
+      <input class="input-std field"
+        type="email"
+        placeholder="email"
+        ng-model="signupCtrl.user.email">
+
+      <input class="input-std field"
+        type="password"
+        placeholder="password"
+        ng-minlength="3"
+        ng-model="signupCtrl.user.password" required>
+
+      <input type="submit" class="btn-std" value="SIGN UP">
+  </form>
+</section>
