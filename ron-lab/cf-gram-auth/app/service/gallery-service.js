@@ -47,6 +47,7 @@ function galleryService($q, $log, $http, authService) {
           Authorization: `Bearer ${token}`,
         },
       };
+      return $http.delete(galleryID, galleryData);
     });
   };
 
