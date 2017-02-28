@@ -22,6 +22,8 @@ function CreateGalleryController($log, galleryService) {
   this.deleteGallery = function() {
     galleryService.deleteGallery(this.gallery)
     .then( () => {
+      delete this.gallery.name;
+      delete this.gallery.desc;
       $log.log('inside the deleteGallery method.');
     });
   };
