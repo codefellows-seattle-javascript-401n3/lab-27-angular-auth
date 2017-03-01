@@ -24,9 +24,6 @@ function HomeController($log, $rootScope, $location, authService, galleryService
 
   this.fetchGalleries();
 
-  this.deleteGallery = function(galleryID) {
-    galleryService.deleteGallery(galleryID);
-  };
 
   $rootScope.$on('$locationChangeSuccess', () => {
     this.fetchGalleries();

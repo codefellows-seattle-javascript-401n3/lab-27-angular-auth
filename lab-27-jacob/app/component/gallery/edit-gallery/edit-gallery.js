@@ -2,7 +2,7 @@
 
 module.exports = {
   template: require('./edit-gallery.html'),
-  controller: ['%log', 'galleryService', EditGalleryController],
+  controller: ['$log', 'galleryService', EditGalleryController],
   controllerAs: 'editGalleryCtrl',
   bindings: {
     gallery: '<'
@@ -10,7 +10,7 @@ module.exports = {
 };
 
 function EditGalleryController($log, galleryService) {
-  $log.debug('EditGalleryConroller');
+  $log.debug('EditGalleryController');
 
   this.updateGallery = function() {
     galleryService.updateGallery(this.gallery._id, this.gallery);

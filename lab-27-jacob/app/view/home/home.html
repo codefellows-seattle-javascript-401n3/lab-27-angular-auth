@@ -1,20 +1,12 @@
 <section class="home">
-  <h2 class = "jumbotron">Welcome Home</h2>
+  <h1 class = "jumbotron">Welcome Home</h1>
   <create-gallery></create-gallery>
-  <table class = "table">
+  <table class="table">
     <tr>
-      <th>NAME</th>
-      <th>DESCRIPTION</th>
-      <th>ID</th>
+      <th scope="row">NAME</th>
+      <th scope="row">DESCRIPTION</th>
+      <th scope="row">ID</th>
     </tr>
-  <tr ng-repeat="gallery in homeCtrl.galleries">
-    <td> {{ gallery.name }} </td>
-    <td> {{ gallery.desc }} </td>
-    <td> {{ gallery._id }} </td>
-    <td>
-      <button class="btn-std" ng-click="homeCtrl.deleteGallery(gallery._id)">Delete</button>
-      <button class="btn-std" ng-click="homeCtrl.editGallery()">Edit</button>
-    </td>
-  </tr>
-</table>
+  </table>
+    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
 </section>

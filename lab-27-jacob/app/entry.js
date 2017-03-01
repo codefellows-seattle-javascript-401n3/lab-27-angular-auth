@@ -15,7 +15,7 @@ const cfgram = angular.module('cfgram', [ngTouch, ngAnimate, uiRouter]);
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( path => {
   cfgram.config(context(path));
-});
+}); //this is webpack version of fs.readdir
 
 context = require.context('./view/', true, /\.js$/);
 context.keys().forEach( key => {
