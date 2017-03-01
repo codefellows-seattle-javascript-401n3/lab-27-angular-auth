@@ -37,7 +37,12 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  service.deleteGalleries = function(galleryID, galleryData) {
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//how does button connect?
+  service.deleteGalleries = function(galleryID) {
+    $log.debug('galleryService.deleteGalleries()');
+    $log.log('galleries removed');
+
     return authService.getToken()
     .then( token => {
       let url = `${__API_URL__}/api/gallery/${galleryID}`;
@@ -47,9 +52,23 @@ function galleryService($q, $log, $http, authService) {
           Authorization: `Bearer ${token}`,
         },
       };
-      return $http.delete(galleryID, galleryData);
+      return $http.delete(url, config);
+    })
+    .then( res => {
+      for (var i = 0; i < service.galleries.length; i++) {
+        let current = service.galleries[i];
+        if(current._id === galleryID) {
+          service.galleries.splice(i, 1);
+          break;
+        }
+      }
+    }).catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
     });
   };
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 
   service.fetchGalleries = function() {
     $log.debug('galleryService.fetchGalleries()');
