@@ -6,7 +6,7 @@ const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const production = process.env.NODE_ENV === 'production';
+// const production = process.env.NODE_ENV === 'production';
 const API_URL = process.env.API_URL || 'http://localhost:3000';
 
 
@@ -17,29 +17,29 @@ let plugins = [
   new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(API_URL),
-    __DEBUG__: JSON.stringify(!production)
+    // __DEBUG__: JSON.stringify(!production)
   })
 ];
 
-if (production) {
-  plugins = plugins.concat([
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: true,
-      compress: {
-        warnings: false
-      },
-    }),
-    new CleanPlugin()
-  ]);
-};
+// if (production) {
+//   plugins = plugins.concat([
+//     new webpack.optimize.UglifyJsPlugin({
+//       mangle: true,
+//       compress: {
+//         warnings: false
+//       },
+//     }),
+//     new CleanPlugin()
+//   ]);
+// };
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
-  devtool: production ? false : 'eval',
+  devtool: production ? false : 'source-map',
   plugins,
   output: {
     path: 'build',
-    filename: 'bundle.js'
+    filename: `${__dirname}/bundle.js`
   },
   sassLoader: {
     includePaths: [`${__dirname}/app/scss/`]
@@ -49,23 +49,23 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        use: 'babel-loader'
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        use: 'html-loader'
       },
       {
         test: /\.(woff|tt|svg|eot).*/,
-        loader: 'url?limit=10000&name=image/[hash].[ext]'
+        use: 'url?limit=10000&name=image/[hash].[ext]'
       },
       {
         test: /\.(jpg|jpeg|svg|bmp|tiff|gif|png)$/,
-        loader: 'url?limit=10000&name=image/[hash].[ext]'
+        use: 'url?limit=10000&name=image/[hash].[ext]'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap')
+        use: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap')
       }
     ]
   }
