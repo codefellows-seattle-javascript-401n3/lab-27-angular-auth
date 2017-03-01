@@ -38,7 +38,6 @@ function galleryService($q, $log, $http, authService) {
   };
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//how does button connect?
   service.deleteGalleries = function(galleryID) {
     $log.debug('galleryService.deleteGalleries()');
     $log.log('galleries removed');
