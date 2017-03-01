@@ -4,15 +4,9 @@
 
   <h1>Galleries:</h1>
 
-    <div class="gallery-container" ng-repeat="gallery in homeCtrl.galleries">
-      <div> name: {{gallery.name}} </div>
-      <div> description: {{gallery.desc}} </div>
-      <div> id: {{gallery._id}} </div>
-    <div class="btn-gallery-div">
-      <button class="btn-std-delete" type="button" ng-click="createGalleryCtrl.deleteGalleries(gallery._id)">delete</button>
-      <button class="btn-std" type="button">edit</button>
-    </div>
-   </div>
+  <ul>
+   <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
+</ul>
 
   <footer><h2>cfgram 2016&copy;</h2></footer>
 </section>
