@@ -9,8 +9,9 @@ const pascalcase = require('pascalcase')
 const uiRouter = require('angular-ui-router')
 const ngTouch = require('angular-touch')
 const ngAnimate = require('angular-animate')
+const ngFileUpload = require('ng-file-upload')
 
-angular.module('angularAuth', [ngTouch, ngAnimate, uiRouter])
+angular.module('angularAuth', [ngTouch, ngAnimate, uiRouter, ngFileUpload])
 
 angular.module('angularAuth').config(['$httpProvider', corsSettings])
 

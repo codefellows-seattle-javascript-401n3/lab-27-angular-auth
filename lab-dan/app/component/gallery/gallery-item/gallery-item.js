@@ -15,6 +15,7 @@ function GalleryItemController ($log, $scope, galleryService) {
   let self = this
   self.displayUpdateForm = false
   self.displayDeleteForm = false
+  self.displayPics = true
   let cancelUpdateEvent = $scope.$on('hideUpdate', () => {
     return self.changeUpdateDisplayStatus()
   })
