@@ -16,6 +16,12 @@
   cursor: pointer;
 }
 
+
+.gallery:active {
+    box-shadow: none;
+    margin-top: 1.5em;
+}
+
 .gallery.ng-enter {
   transition: 2s;
   opacity: 0;
