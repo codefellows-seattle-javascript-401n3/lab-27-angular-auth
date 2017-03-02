@@ -1,6 +1,7 @@
 <section class="home">
   <h1 class = "jumbotron">Welcome Home</h1>
   <create-gallery></create-gallery>
+  <div class = "gallery-item-container">
   <table class="table">
     <tr>
       <th scope="row">NAME</th>
@@ -8,5 +9,13 @@
       <th scope="row">ID</th>
     </tr>
   </table>
-    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
+    <gallery-item
+    ng-repeat="item in homeCtrl.galleries"
+    gallery="item"
+    delete-done="homeCtrl.galleryDeleteDone(galleryData)"
+    ng-click="homeCtrl.currentGallery = item">
+    </gallery-item>
+  </div>
+
+  <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
 </section>

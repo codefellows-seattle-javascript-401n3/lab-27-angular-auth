@@ -19,7 +19,14 @@ function HomeController($log, $rootScope, $location, authService, galleryService
     galleryService.fetchGalleries()
     .then(galleries => {
       this.galleries = galleries;
+      this.currentGallery = galleries[0];
     });
+  };
+
+  this.galleryDeleteDone = function(gallery) {
+    if(this.currentGallery._id === gallery._id) {
+      this.currentGallery = null;
+    }
   };
 
   this.fetchGalleries();

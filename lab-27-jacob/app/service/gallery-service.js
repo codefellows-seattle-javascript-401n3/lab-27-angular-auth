@@ -39,19 +39,6 @@ function galleryService($q, $log, $http, authService) {
       return $q.reject(err);
     });
   };
-  //
-  // service.deleteGalleries = function(galleryID, galleryData) {
-  //   return authService.getToken()
-  //   .then(token => {
-  //     let url = `http://localhost:3000/api/gallery/${galleryID}`;
-  //     let config = {
-  //       headers: {
-  //         Accept: 'application/json',
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     };
-  //   });
-  // };
 
   service.fetchGalleries = function() {
     $log.debug('galleryService.fetchGalleries()');
