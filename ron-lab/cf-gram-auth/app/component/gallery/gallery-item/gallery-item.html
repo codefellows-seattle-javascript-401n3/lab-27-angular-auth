@@ -15,24 +15,7 @@
   </div>
 
   <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
+<!-- The below code will break my app if uncommented, it will prevent all images from being loaded -->
+  <upload-pic gallery="galleryCtrl.gallery"></upload-pic>
 
 </li>
-
-<!-- <div class="gallery-item">
-  <div class="gallery-container" class="current-item" ng-if="!galleryItemCtrl.showEditGallery">
-    <div>
-      <div class="item-label">name:</div>
-      <div>{{ galleryItemCtrl.gallery.name }}</div>
-    </div>
-
-    <div>
-      <div class="item-label">description:</div>
-      <div>{{ galleryItemCtrl.gallery.desc }}</div>
-    </div>
-
-    <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
-
-    <button class="btn-std" ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
-    <button class="btn-std" ng-click="galleryItemCtrl.deleteGallery()">delete</button>
-  </div>
-</div> -->
