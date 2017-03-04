@@ -2,9 +2,10 @@
 
 module.exports = ['$q', '$log', '$http', '$window', authService];
 
+
 function authService($q, $log, $http, $window){
   $log.debug('authService');
-
+  // let __API_URL__ = 'http://localhost:3000';
   let service = {};
   let token = null;
 

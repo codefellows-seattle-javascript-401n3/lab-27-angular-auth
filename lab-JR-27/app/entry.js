@@ -2,6 +2,7 @@
 
 require('./scss/main.scss');
 
+
 const path = require('path');
 const angular = require('angular');
 const camelcase = require('camelcase');

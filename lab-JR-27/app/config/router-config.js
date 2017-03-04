@@ -25,6 +25,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
     },
   ];
   states.forEach(state => {
+    //loop across our states and be aware of their settings
     $stateProvider.state(state);
   });
 }
