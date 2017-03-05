@@ -9,7 +9,6 @@ function picService($q, $log, $http, Upload, authService) {
 
   service.uploadGalleryPic = function(galleryData, picData) {
     $log.debug('uploadGalleryPic');
-
     return authService.getToken()
     .then(token => {
       let url = `http://localhost:3000/api/gallery/${galleryData._id}/pic`;
@@ -17,6 +16,7 @@ function picService($q, $log, $http, Upload, authService) {
         Authorization: `Bearer ${token}`,
         Accept: 'application/json'
       };
+      console.log('MADE IT BEFORE UPLOAD!!');
 
       return Upload.upload({
         url,
@@ -28,12 +28,14 @@ function picService($q, $log, $http, Upload, authService) {
           file: picData.file
         }
       });
+      console.log('-----MADE IT AFTER UPLOAD------');
     })
     .then(res => {
       galleryData.pics.unshift(res.data);
       return res.data;
     })
     .catch(err => {
+      console.log(err);
       $log.error(err.message);
       return $q.reject(err);
     });

@@ -26,15 +26,12 @@ function galleryService($q, $log, $http, authService) {
       return $http(req);
     })
     .then(res => {
-      console.log('-----MADE IT INTO RES------');
       $log.log('gallery created');
       let gallery = res.data;
       service.galleries.unshift(gallery);
       return gallery;
     })
     .catch(err => {
-      console.log('------MADE IT INTO ERROR-----');
-      console.log(err);
       //$log.error(err.message);
       return $q.reject(err);
     });
@@ -96,8 +93,6 @@ function galleryService($q, $log, $http, authService) {
   };
 
   service.deleteGallery = function(galleryID) {
-    console.log('-----MADE IT IN HERE-----');
-    console.log(galleryID);
     $log.debug('galleryService.updateGallery()');
 
     return authService.getToken()
