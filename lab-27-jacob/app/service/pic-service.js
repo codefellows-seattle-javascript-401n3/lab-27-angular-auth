@@ -16,25 +16,24 @@ function picService($q, $log, $http, Upload, authService) {
         Authorization: `Bearer ${token}`,
         Accept: 'application/json'
       };
-      console.log('MADE IT BEFORE UPLOAD!!');
-
+      let data = {
+        name: picData.name,
+        desc: picData.desc,
+        file: picData.file
+      };
       return Upload.upload({
         url,
         headers,
         method: 'POST',
-        data: {
-          name: picData.name,
-          desc: picData.desc,
-          file: picData.file
-        }
+        data: data
       });
-      console.log('-----MADE IT AFTER UPLOAD------');
     })
     .then(res => {
       galleryData.pics.unshift(res.data);
       return res.data;
     })
     .catch(err => {
+      console.log('------MADE IT INTO ERROR-----');
       console.log(err);
       $log.error(err.message);
       return $q.reject(err);

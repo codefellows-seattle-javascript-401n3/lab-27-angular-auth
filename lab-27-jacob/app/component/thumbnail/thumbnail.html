@@ -1,4 +1,6 @@
-<div class = "thumbnail">
-  <img ng-src=" {{ thumbnail.pic.imageURI }}" alt="{{ thumbnailCtrl.pic.desc }}">
-  <span class="btn-std" ng-click="thumbnailCtrl.deletePic()">Delete Picture</span>
+<div class="thumbnail">
+  <img ng-src="{{ thumbnailCtrl.pic.imageURI }}" alt="{{ thumbnailCtrl.pic.desc }}" class="img-rounded">
+  <button class="btn-std" ng-click="thumbnailCtrl.deletePic()">delete</button>
+  <span> Name: {{ thumbnailCtrl.pic.name }} </span><br />
+  <span> Description: {{ thumbnailCtrl.pic.desc }} </span>
 </div>
