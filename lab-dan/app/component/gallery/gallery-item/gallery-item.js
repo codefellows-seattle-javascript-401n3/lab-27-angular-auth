@@ -15,10 +15,12 @@ function GalleryItemController ($log, $scope, galleryService) {
   let self = this
   self.displayUpdateForm = false
   self.displayDeleteForm = false
-  self.displayPics = true
+  self.displayPics = false
+
   let cancelUpdateEvent = $scope.$on('hideUpdate', () => {
     return self.changeUpdateDisplayStatus()
   })
+
   let cancelDeleteEvent = $scope.$on('hideDelete', () => {
     return self.changeDeleteDisplayStatus()
   })
@@ -31,6 +33,11 @@ function GalleryItemController ($log, $scope, galleryService) {
   self.changeDeleteDisplayStatus = function () {
     $log.debug('delete status updated')
     return self.displayDeleteForm = !self.displayDeleteForm
+  }
+
+  self.changeDisplayPicsStatus = function () {
+    $log.debug('display status changed')
+    return self.displayPics = !self.displayPics
   }
 
 }

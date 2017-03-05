@@ -1,0 +1,14 @@
+<div class="pic_view group">
+  <h2>{{ galleryPicsCtrl.gallery.name }}</h2>
+  <div class="centered_items">
+    <button class="btn">Upload Pics!</button>
+  </div>
+  <upload-pic gallery=galleryPicsCtrl.gallery></upload-pic>
+  <div>
+    <ul>
+      <li ng-repeat="pic in galleryPicsCtrl.pics">
+        {{ pic.name }} - {{ pic.desc }}
+      </li>
+    </ul>
+  </div>
+</div>

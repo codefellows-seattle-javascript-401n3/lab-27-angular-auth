@@ -1,0 +1,19 @@
+<section class="form upload_pic group">
+  <h3>Create a New Gallery</h3>
+  <form name="uploadPicForm"
+    class="gallery-form"
+    ng-submit="uploadPicCtrl.uploadPic()">
+
+    <fieldset>
+      <label for="name">name</label>
+      <input name="name" class="input-std" type="text" ng-model="uploadPicCtrl.newPic.name" required>
+      <label for="desc">description</label>
+      <input name="desc" class="input-std" ng-model="uploadPicCtrl.newPic.desc" required>
+    </fieldset>
+    <div class='btn' ngf-select ng-model="uploadPicCtrl.newPic.data">
+      Select a Pic
+    </div>
+
+    <button class="btn btn-right" type="submit">upload pic</button>
+  </form>
+</section>

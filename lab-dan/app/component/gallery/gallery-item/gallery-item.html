@@ -1,5 +1,5 @@
 <div class="gallery group">
-  <div class="card" ng-show="!galleryItemCtrl.displayUpdateForm && !galleryItemCtrl.displayDeleteForm">
+  <div class="card" ng-click="galleryItemCtrl.changeDisplayPicsStatus(); $event.stopPropagation();" ng-show="!galleryItemCtrl.displayUpdateForm && !galleryItemCtrl.displayDeleteForm">
     <img src="http://placehold.it/250">
     <p class="name">
       name: {{ galleryItemCtrl.gallery.name }}
@@ -8,8 +8,8 @@
       description: {{ galleryItemCtrl.gallery.desc }}
     </p>
     <div class="centered_items">
-      <button class="btn" type="button" name="edit" ng-click="galleryItemCtrl.changeUpdateDisplayStatus()">edit</button>
-      <button class="btn" type="button" name="delete" ng-click="galleryItemCtrl.changeDeleteDisplayStatus()">delete</button>
+      <button class="btn" type="button" name="edit" ng-click="galleryItemCtrl.changeUpdateDisplayStatus(); $event.stopPropagation();">edit</button>
+      <button class="btn" type="button" name="delete" ng-click="galleryItemCtrl.changeDeleteDisplayStatus(); $event.stopPropagation();">delete</button>
     </div>
   </div>
   <div class="card" ng-show="galleryItemCtrl.displayUpdateForm">
@@ -19,6 +19,6 @@
     <delete-gallery gallery="galleryItemCtrl.gallery"></delete-gallery>
   </div>
   <div class="card" ng-show="galleryItemCtrl.displayPics">
-    <pic-item gallery="galleryItemCtrl.gallery"></pic-item>
+    <gallery-pics gallery="galleryItemCtrl.gallery"></gallery-pics>
   </div>
 </div>

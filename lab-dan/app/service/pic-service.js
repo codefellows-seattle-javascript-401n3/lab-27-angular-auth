@@ -11,9 +11,10 @@ module.exports = [
 ]
 
 function picService ($log, $q, $http, $window, authService) {
-  // const localStorageKey = 'pics'
+  const localStorageKey = 'pics'
   let service = {}
   service.pics = []
+  $log.debug('inside picService')
 
   service.uploadPic = function (gallery, pic) {
     return authService
@@ -67,15 +68,17 @@ function picService ($log, $q, $http, $window, authService) {
   }
 
   service.getPics = function (gallery) {
-    service.pics = _getLocalGalleries()
-    if (service.pics) {
-      $log.debug('pulling from localStorage')
-      return $q.resolve(service.pics)
-    }
+    // service.pics = _getLocalGalleries()
+    // if (service.pics) {
+    //   $log.debug('pulling from localStorage')
+    //   return $q.resolve(service.pics)
+    // }
+    $log.debug('inside getPics function')
+    $log.debug(gallery._id)
     return authService
       .getToken()
       .then( token => {
-        let url = `${__API_URL__}/api/gallery`
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`
         let config = {
           headers: {
             Accept: 'application/json',
@@ -86,7 +89,7 @@ function picService ($log, $q, $http, $window, authService) {
       })
       .then( res => {
         $log.debug('received this data:', res)
-        service.pics = res.data
+        // service.pics = res.data
         // _setLocalGalleries(service.pics)
         return $q.resolve(service.pics)
       })
@@ -127,12 +130,12 @@ function picService ($log, $q, $http, $window, authService) {
     return pics._id === this._id
   }
 
-  function _setLocalPics(pics) {
-    $window.localStorage.setItem(localStorageKey, angular.toJson(pics))
+  function _setLocalPics(pics, galleryID) {
+    $window.localStorage.setItem(`${localStorageKey}_${galleryID}`, angular.toJson(pics))
   }
 
-  function _getLocalPics() {
-    return angular.fromJson($window.localStorage.getItem(localStorageKey))
+  function _getLocalPics(galleryID) {
+    return angular.fromJson($window.localStorage.getItem(`${localStorageKey}_${galleryID}`))
   }
 
   return service
