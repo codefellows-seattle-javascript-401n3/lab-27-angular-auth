@@ -8,6 +8,21 @@ function galleryService($q, $log, $http, authService) {
   let service = {};
   service.galleries = [];
 
+  service.getOneGallery = function(picID) {
+    let p;
+    service.galleries.forEach(function(gallery) {
+      gallery.pics.forEach(function(pic) {
+        if (pic._id === picID) {
+          console.log('LOGGIGNG GALYYER');
+          console.log(gallery);
+          p = gallery;
+        }
+      });
+    }); //this seems dumb and inefficient
+    // return $q.reject(new Error ('pic not found'));
+    return $q.resolve(p);
+  };
+
   service.createGallery = function(gallery) {
     $log.debug('galleryService.createGallery()');
 

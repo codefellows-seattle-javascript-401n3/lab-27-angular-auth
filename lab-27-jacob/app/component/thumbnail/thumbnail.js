@@ -1,22 +1,30 @@
 'use strict';
 
-require('./_thumbnail.scss')
+require('./_thumbnail.scss');
 
 module.exports = {
   template: require('./thumbnail.html'),
-  controller: ['$log', 'picService', ThumbnailController],
+  controller: ['$log', '$rootScope', 'picService', 'galleryService', ThumbnailController],
   controllerAs: 'thumbnailCtrl',
   bindings: {
-    pic: '<'
+    pic: '<',
+    gallery: '<'
   }
 };
 
-function ThumbnailController($log, picService) {
-  $log.debug('ThumbnailController');
+function ThumbnailController($log, $rootScope, picService, galleryService) {
 
-  this.deletePic = function() {
-    $log.debug('thumbnailCtrl.deletePic');
+    $log.debug('ThumbnailController');
 
-    //use picService here somewhere
-  };
+    this.deletePic = function() {
+      $log.debug('picService.deletePic');
+      galleryService.getOneGallery(this.pic._id)
+      .then(gallery => {
+        picService.deletePic(gallery, this.pic);
+      })
+      .then(()=> {
+        $rootScope.$apply();
+      })
+      .catch(console.error);
+    };
 }

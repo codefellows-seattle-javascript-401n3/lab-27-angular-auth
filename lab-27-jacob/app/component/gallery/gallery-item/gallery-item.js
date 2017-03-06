@@ -12,11 +12,11 @@ module.exports = {
 };
 
 function GalleryItemController($log, galleryService) {
-  $log.debug('GalleryItemController');
-
-  this.showEditGallery = false;
-
-  this.deleteGallery = function(galleryID) {
-    galleryService.deleteGallery(galleryID);
+  this.$onInit = () => {
+    $log.debug('GalleryItemController');
+    this.showEditGallery = false;
+    this.deleteGallery = function(galleryID) {
+      galleryService.deleteGallery(galleryID);
+    };
   };
 }

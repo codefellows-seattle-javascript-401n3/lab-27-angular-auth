@@ -6,6 +6,7 @@ function picService($q, $log, $http, Upload, authService) {
   $log.debug('picService');
 
   let service = {};
+//return a new promise that looks through galleries and finds the pic with the same ID as the parameter you pass in. resolve with the gallery ID
 
   service.uploadGalleryPic = function(galleryData, picData) {
     $log.debug('uploadGalleryPic');
@@ -33,11 +34,38 @@ function picService($q, $log, $http, Upload, authService) {
       return res.data;
     })
     .catch(err => {
-      console.log('------MADE IT INTO ERROR-----');
-      console.log(err);
       $log.error(err.message);
       return $q.reject(err);
     });
   };
+
+  service.deletePic = function(galleryData, picData) {
+    $log.debug('picService.deletePic()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/gallery/${galleryData._id}/pic/${picData._id}`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config); //will remove from mongo
+    })
+    .then(() => {
+      for (let i=0; i< galleryData.pics; i++) {
+        let current = galleryData.pics[i];
+        if(current._id === picData._id) {
+          galleryData.pics.splice(i, 1);
+          break;
+        }
+      }
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
   return service;
 }
