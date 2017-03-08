@@ -2,7 +2,6 @@
 
 .gallery {
   flex: auto;
-  padding: 1.5em;
   margin: 1em;
   // max-width: 18em;
   min-height: 28em;
@@ -10,14 +9,14 @@
   border: 1px solid $primary-gray;
 }
 
-.gallery:hover {
+.front:hover {
   background: $primary-red;
   color: $white;
   cursor: pointer;
 }
 
 
-.gallery:active {
+.front:active {
     box-shadow: none;
 }
 
@@ -51,6 +50,8 @@
 
 .card {
   min-width: 18em;
+  min-height: inherit;
+  padding: 1.5em;
 }
 
 .name {

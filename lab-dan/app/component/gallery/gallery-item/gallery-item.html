@@ -1,5 +1,5 @@
 <div class="gallery group">
-  <div class="card" ng-click="galleryItemCtrl.changeDisplayPicsStatus(); $event.stopPropagation();" ng-show="!galleryItemCtrl.displayUpdateForm && !galleryItemCtrl.displayDeleteForm">
+  <div class="card front" ng-click="galleryItemCtrl.changeDisplayPicsStatus(); $event.stopPropagation();" ng-show="!galleryItemCtrl.displayUpdateForm && !galleryItemCtrl.displayDeleteForm && !galleryItemCtrl.displayPics">
     <img src="http://placehold.it/250">
     <p class="name">
       name: {{ galleryItemCtrl.gallery.name }}

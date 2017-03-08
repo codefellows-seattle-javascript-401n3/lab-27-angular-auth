@@ -31,7 +31,7 @@ function galleryService ($log, $q, $http, $window, authService) {
       .then( res => {
         let gallery = res.data
         service.galleries.unshift(gallery)
-        _setLocalGalleries(service.galleries)
+        // _setLocalGalleries(service.galleries)
         return $q.resolve(gallery)
       })
       .catch( err => $q.reject(err))
@@ -59,7 +59,7 @@ function galleryService ($log, $q, $http, $window, authService) {
           return $q.reject(new Error('couldn\'t find gallery to update!!!'))
         }
         service.galleries[index] = gallery
-        _setLocalGalleries(service.galleries)
+        // _setLocalGalleries(service.galleries)
         return $q.resolve(gallery)
       })
       .catch( err => $q.reject(err))
@@ -86,7 +86,7 @@ function galleryService ($log, $q, $http, $window, authService) {
       .then( res => {
         $log.debug('received this data:', res)
         service.galleries = res.data
-        _setLocalGalleries(service.galleries)
+        // _setLocalGalleries(service.galleries)
         return $q.resolve(service.galleries)
       })
       .catch( err => $q.reject(err))
@@ -112,7 +112,7 @@ function galleryService ($log, $q, $http, $window, authService) {
           return $q.reject(new Error('couldn\'t find gallery to update!!!'))
         }
         service.galleries.splice(index, 1)
-        _setLocalGalleries(service.galleries)
+        // _setLocalGalleries(service.galleries)
         return $q.resolve(service.galleries)
       })
       .catch( err => $q.reject(err))

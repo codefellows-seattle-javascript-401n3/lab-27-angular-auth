@@ -4,14 +4,14 @@ require('./gallery-item.scss')
 
 module.exports = {
   template: require('./gallery-item.html'),
-  controller: ['$log', '$scope', 'galleryService', GalleryItemController],
+  controller: ['$log', '$scope', '$anchorScroll', '$location', 'galleryService', GalleryItemController],
   controllerAs: 'galleryItemCtrl',
   bindings: {
     gallery: '<'
   }
 }
 
-function GalleryItemController ($log, $scope, galleryService) {
+function GalleryItemController ($log, $scope, $anchorScroll, $location, galleryService) {
   let self = this
   self.displayUpdateForm = false
   self.displayDeleteForm = false
@@ -25,18 +25,27 @@ function GalleryItemController ($log, $scope, galleryService) {
     return self.changeDeleteDisplayStatus()
   })
 
+  let hidePicsEvent = $scope.$on('hide pics', () => {
+    return self.changeDisplayPicsStatus()
+  })
+
   self.changeUpdateDisplayStatus = function () {
-    $log.debug('update status updated')
     return self.displayUpdateForm = !self.displayUpdateForm
   }
 
   self.changeDeleteDisplayStatus = function () {
-    $log.debug('delete status updated')
     return self.displayDeleteForm = !self.displayDeleteForm
   }
 
   self.changeDisplayPicsStatus = function () {
     $log.debug('display status changed')
+    // if (!self.displayPics) {
+    //   if ($location.hash() !== self.gallery._id) {
+    //     $location.hash(self.gallery._id)
+    //   } else {
+    //     $anchorScroll()
+    //   }
+    // }
     return self.displayPics = !self.displayPics
   }
 
