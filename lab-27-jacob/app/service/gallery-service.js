@@ -1,0 +1,81 @@
+'use strict';
+
+module.exports = ['$q', '$log', '$http', 'authService', galleryService];
+
+function galleryService($q, $log, $http, authService) {
+  $log.debug('galleryService()');
+
+  let service = {};
+  service.galleries = [];
+
+  service.createGallery = function(gallery) {
+    $log.debug('galleryService.createGallery()');
+
+    return authService.getToken()
+    .then(token => {
+      let req = {
+        method: 'POST',
+        url: 'http://localhost:3000/api/gallery',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        data: {name: gallery.name, desc: gallery.desc}
+      };
+      return $http(req);
+    })
+    .then(res => {
+      console.log('-----MADE IT INTO RES------');
+      $log.log('gallery created');
+      let gallery = res.data;
+      service.galleries.unshift(gallery);
+      return gallery;
+    })
+    .catch(err => {
+      console.log('------MADE IT INTO ERROR-----');
+      console.log(err)
+      //$log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.deleteGalleries = function(galleryID, galleryData) {
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/gallery/${galleryID}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+    });
+  };
+
+  service.fetchGalleries = function() {
+    $log.debug('galleryService.fetchGalleries()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/gallery`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config);
+    })
+      .then(res => {
+        $log.log('galleries retrieved');
+        service.galleries = res.data;
+        return service.galleries;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        return $q.reject(err);
+      });
+  };
+  return service;
+}
