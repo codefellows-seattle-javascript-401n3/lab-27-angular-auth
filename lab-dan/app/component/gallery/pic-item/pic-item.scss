@@ -1,0 +1,19 @@
+@import "../../../scss/lib/vars.scss";
+$boxSize: 17em;
+
+.pic {
+  flex: auto;
+  padding: 1.5em;
+  margin: 1em;
+  min-height: 28em;
+  border: 1px solid $primary-gray;
+  min-width: $boxSize;
+  max-width: $boxSize;
+  min-height: $boxSize;
+  max-height: $boxSize;
+}
+
+.pic img {
+  max-width: $boxSize * .95;
+  max-height: $boxSize * .55;
+}

@@ -14,8 +14,13 @@ module.exports = {
 function UploadPicController ($log, $scope, picService) {
   let self = this
   $log.debug('inside uploadPicCtrl')
+  self.newPic = {}
+  self.newPic.name = null
+  self.newPic.data = null
+  self.newPic.desc = null
 
   self.uploadPic = function() {
+    $log.debug(self.newPic)
     picService
       .uploadPic(self.gallery, self.newPic)
       .then( () => {
@@ -26,6 +31,13 @@ function UploadPicController ($log, $scope, picService) {
         $scope.$emit('hide file upload')
       })
       .catch( err => $log.debug(err))
+  }
+
+  self.cancelUpload = function () {
+    self.newPic.name = null
+    self.newPic.desc = null
+    self.newPic.file = null
+    $scope.$emit('hide file upload')
   }
 
 }

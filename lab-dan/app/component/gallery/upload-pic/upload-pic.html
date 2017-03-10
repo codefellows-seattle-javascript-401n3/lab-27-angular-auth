@@ -1,19 +1,32 @@
 <section class="form upload_pic group">
-  <h3>Create a New Gallery</h3>
+  <h3>Add a pic</h3>
   <form name="uploadPicForm"
     class="gallery-form"
     ng-submit="uploadPicCtrl.uploadPic()">
 
     <fieldset>
-      <label for="name">name</label>
-      <input name="name" class="input-std" type="text" ng-model="uploadPicCtrl.newPic.name" required>
-      <label for="desc">description</label>
-      <input name="desc" class="input-std" ng-model="uploadPicCtrl.newPic.desc" required>
+      <div class='drop' ngf-drop ng-model="uploadPicCtrl.newPic.data">
+        Drag and drop a pic here or
+        <button ngf-select ng-model="uploadPicCtrl.newPic.data" class="btn">browse for file</button>
+      </div>
+      <div ng-if="uploadPicCtrl.newPic.data">
+        <label for="name">name</label>
+        <input
+        name="name"
+        class="input-std"
+        type="text"
+        placeholder="{{ uploadPicCtrl.newPic.data.name }}"
+        ng-model="uploadPicCtrl.newPic.name"
+        ng-init="uploadPicCtrl.newPic.name = uploadPicCtrl.newPic.data.name"
+        required>
+        <label for="desc">description</label>
+        <input
+        name="desc"
+        class="input-std"
+        ng-model="uploadPicCtrl.newPic.desc"
+        required>
+      </div>
     </fieldset>
-    <div class='drop' ngf-drop ng-model="uploadPicCtrl.newPic.data">
-      Drag and drop a pic here or
-      <button ngf-select ng-model="uploadPicCtrl.newPic.data" class="btn">browse for file</button>
-    </div>
     <div ng-if="uploadPicCtrl.newPic.data">
       <h4>Preview:</h4>
       <img ngf-src="uploadPicCtrl.newPic.data" ngf-resize="{width: 100, height: 100, quality: 0.9}" />
@@ -27,5 +40,6 @@
       </ul>
     </div>
     <button class="btn btn-right" type="submit">upload pic</button>
+    <button class="btn btn-right" ng-click="uploadPicCtrl.cancelUpload()">cancel</button>
   </form>
 </section>

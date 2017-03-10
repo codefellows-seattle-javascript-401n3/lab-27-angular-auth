@@ -19,9 +19,6 @@
     </p>
   </div>
   <div class="thumbnails">
-    <div class="pic" ng-repeat="pic in galleryPicsCtrl.gallery.pics">
-      <img src="{{ pic.imageURI }}" />
-      <p>{{ pic.name }} - {{ pic.desc }}</p>
-    </div>
+    <pic-item ng-repeat="pic in galleryPicsCtrl.gallery.pics" pic="pic"></pic-item>
   </div>
 </div>

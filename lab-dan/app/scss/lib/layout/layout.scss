@@ -26,8 +26,33 @@ main {
   flex: 1;
 }
 
+.form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form h3 {
+  padding: 1em;
+}
+
+@media all and (max-width: 1250px) {
+  .form {
+    width: 75%;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .form {
+    width: 100%;
+  }
+}
+
 fieldset {
   border: none;
+}
+
+label {
+  margin-left: .7em;
 }
 
 input {
@@ -51,6 +76,8 @@ input {
 
 .btn-right {
   float: right;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .clear {
