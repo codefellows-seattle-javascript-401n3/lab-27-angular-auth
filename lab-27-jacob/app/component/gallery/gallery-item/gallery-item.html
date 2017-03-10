@@ -1,8 +1,8 @@
 <table class = "table table-hover">
   <div class = "current-item" ng-if="!galleryItemCtrl.showEditGallery">
 <tr scope="row">
-  <td> {{ galleryItemCtrl.gallery.name }} </td>
-  <td> {{ galleryItemCtrl.gallery.desc }} </td>
+  <td> {{ galleryItemCtrl.gallery.name | customUppercase }} </td>
+  <td> {{ galleryItemCtrl.gallery.desc | lowercase }} </td>
   <td> {{ galleryItemCtrl.gallery._id }} </td>
   <td>
     <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>

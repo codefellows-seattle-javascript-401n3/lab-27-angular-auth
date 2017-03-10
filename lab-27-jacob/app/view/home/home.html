@@ -1,6 +1,9 @@
 <section class="home">
   <h1 class = "jumbotron">Welcome Home</h1>
   <create-gallery></create-gallery>
+
+  <input type="number" ng-model="homeCtrl.gallerLimit" value=100>
+
   <div class = "gallery-item-container">
   <table class="table">
     <tr>
@@ -10,7 +13,7 @@
     </tr>
   </table>
     <gallery-item
-    ng-repeat="item in homeCtrl.galleries"
+    ng-repeat="item in homeCtrl.galleries | sortGalleries: homeCtrl.gallerLimit"
     gallery="item"
     delete-done="homeCtrl.galleryDeleteDone(galleryData)"
     ng-click="homeCtrl.currentGallery = item">
@@ -18,3 +21,4 @@
   </div>
 
   <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
+</section>
