@@ -1,34 +1,3 @@
-@import "../../../scss/lib/vars.scss";
-
-$boxSize: 15em;
-
-.pic_view {
+.update_pic {
   background: transparent;
-  min-width: 95vw;
-  min-height: 95vh;
-}
-
-.thumbnails {
-  clear: both;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: flex-start;
-}
-
-.pic {
-  flex: auto;
-  padding: 1.5em;
-  margin: 1em;
-  min-height: 28em;
-  border: 1px solid $primary-gray;
-  min-width: $boxSize;
-  max-width: $boxSize;
-  min-height: $boxSize;
-  max-height: $boxSize;
-}
-
-.pic img {
-  max-width: $boxSize * .95;
-  max-height: $boxSize * .90;
 }

@@ -13,18 +13,22 @@ module.exports = {
 
 function UpdatePicController ($log, $scope, picService) {
   let self = this
-  self.showUploadForm = false
-  let hideUploadForm = $scope.$on('hide file upload', () => {
-    self.changeUploadDisplayStatus()
-  })
+  self.picUpdate = {}
 
-  self.hidePics = function () {
-    $log.debug('hide pics called')
-    $scope.$emit('hide pics')
+  self.$onInit = function () {
+    self.picUpdate = {
+      _id: self.pic._id,
+      name: self.pic.name,
+      desc: self.pic.desc
+    }
   }
 
-  self.changeUploadDisplayStatus = function () {
-    return self.showUploadForm = !self.showUploadForm
+  self.update = function () {
+    
+  }
+
+  self.cancel = function () {
+    $scope.$emit('hide update form')
   }
 
 }

@@ -3,13 +3,14 @@
     <img src="{{ picItemCtrl.pic.imageURI }}" />
     <p>{{ picItemCtrl.pic.name }} - {{ picItemCtrl.pic.desc }}</p>
     <div class="centered_items">
-      <button class="btn">delete</button>
-      <button class="btn">update</button>
+      <button class="btn" ng-click="picItemCtrl.changeDisplayDeleteStatus()">delete</button>
+      <!-- <button class="btn" ng-click="picItemCtrl.changeDisplayUpdateStatus()">update</button> -->
     </div>
   </div>
-  <div ng-show="picItemCtrl.displayUpdateForm">
+  <!-- Slugram doesn't have an update route. Sad. -->
+  <!-- <div ng-show="picItemCtrl.displayUpdateForm">
     <update-pic pic="picItemCtrl.pic"></update-pic>
-  </div>
+  </div> -->
   <div ng-show="picItemCtrl.displayDeleteForm">
     <delete-pic pic="picItemCtrl.pic"></delete-pic>
   </div>

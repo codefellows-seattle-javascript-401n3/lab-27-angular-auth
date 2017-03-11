@@ -6,16 +6,21 @@ module.exports = [
   '$log',
   '$location',
   '$rootScope',
+  '$scope',
   'authService',
   'galleryService',
   HomeController
 ]
 
-function HomeController ($log, $location, $rootScope, authService, galleryService) {
+function HomeController ($log, $location, $rootScope, $scope, authService, galleryService) {
   let self = this
   self.title = 'Welcome to the home page!'
   self.galleries = []
   let urlChangeEvent = $rootScope.$on('$locationChangeSuccess', () => {
+    self.fetchGalleries()
+  })
+  let fetchGalleriesEvent = $scope.$on('fetchGalleries', () => {
+    $log.debug('fetch galleries called')
     self.fetchGalleries()
   })
 
@@ -35,6 +40,6 @@ function HomeController ($log, $location, $rootScope, authService, galleryServic
         self.galleries = galleries
       })
   }
-  
+
   self.fetchGalleries()
 }
