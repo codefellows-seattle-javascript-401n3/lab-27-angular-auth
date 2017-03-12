@@ -1,14 +1,9 @@
 'use strict'
 
-require('./lib/test-setup')
-// this is to correct a phantomJS known bug
-// https://github.com/ariya/phantomjs/issues/14211
-require('babel-polyfill')
-
+// require('./lib/test-setup')
 const URL = `${__API_URL__}/api/gallery`
 const token = 'testToken'
-
-const angular = require('angular')
+// const angular = require('angular')
 
 describe('gallery service tests', function () {
   beforeEach(() => {
