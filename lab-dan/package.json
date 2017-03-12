@@ -19,7 +19,7 @@
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-preset-env": "^1.1.8",
-    "camelcase": "^4.0.0",
+    "camelcase": "3.0.0",
     "css-loader": "^0.26.1",
     "dotenv": "^4.0.0",
     "eslint": "^3.15.0",
@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.6.2",
+    "babel-polyfill": "^6.23.0",
     "jasmine-core": "^2.5.2",
     "karma": "^1.4.1",
     "karma-chrome-launcher": "^2.0.0",

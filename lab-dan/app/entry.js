@@ -11,9 +11,9 @@ const ngTouch = require('angular-touch')
 const ngAnimate = require('angular-animate')
 const ngFileUpload = require('ng-file-upload')
 
-angular.module('angularAuth', [ngTouch, ngAnimate, uiRouter, ngFileUpload])
+angular.module('angularPhotoGallery', [ngTouch, ngAnimate, uiRouter, ngFileUpload])
 
-angular.module('angularAuth').config(['$httpProvider', corsSettings])
+angular.module('angularPhotoGallery').config(['$httpProvider', corsSettings])
 
 function corsSettings ($httpProvider) {
   $httpProvider.defaults.useXDomain = true
@@ -21,26 +21,26 @@ function corsSettings ($httpProvider) {
 
 let context = require.context('./config/', true, /\.js$/)
 context.keys().forEach( path => {
-  angular.module('angularAuth').config(context(path))
+  angular.module('angularPhotoGallery').config(context(path))
 })
 
 context = require.context('./view/', true, /\.js$/)
 context.keys().forEach( key => {
   let name = pascalcase(path.basename(key, '.js'))
   let module = context(key)
-  angular.module('angularAuth').controller(name, module)
+  angular.module('angularPhotoGallery').controller(name, module)
 })
 
 context = require.context('./service/', true, /\.js$/)
 context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'))
   let module = context(key)
-  angular.module('angularAuth').service(name, module)
+  angular.module('angularPhotoGallery').service(name, module)
 })
 
 context = require.context('./component/', true, /\.js$/)
 context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'))
   let module = context(key)
-  angular.module('angularAuth').component(name, module)
+  angular.module('angularPhotoGallery').component(name, module)
 })
