@@ -44,3 +44,10 @@ context.keys().forEach( key => {
   let module = context(key)
   angular.module('angularPhotoGallery').component(name, module)
 })
+
+context = require.context('./filter/', true, /\.js$/)
+context.keys().forEach( key => {
+  let name = camelcase(path.basename(key, '.js'))
+  let module = context(key)
+  angular.module('angularPhotoGallery').filter(name, module)
+})

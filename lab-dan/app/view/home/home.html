@@ -4,7 +4,8 @@
   <create-gallery></create-gallery>
 
   <h2 class="clear">Your Galleries</h2>
+  <label>search: <input ng-model="homeCtrl.searchText"/></label>
   <div class="gallery_view group">
-    <gallery-item id="{{ item._id }}" ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
+    <gallery-item id="{{ item._id }}" ng-repeat="item in homeCtrl.galleries | searchFilter:homeCtrl.searchText" gallery="item"></gallery-item>
   </div>
 </section>

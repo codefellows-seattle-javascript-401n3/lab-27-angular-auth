@@ -19,6 +19,6 @@
     </p>
   </div>
   <div class="thumbnails">
-    <pic-item ng-repeat="pic in galleryPicsCtrl.gallery.pics" gallery=galleryPicsCtrl.gallery pic="pic"></pic-item>
+    <pic-item ng-repeat="pic in galleryPicsCtrl.gallery.pics | orderBy: '-created'" gallery=galleryPicsCtrl.gallery pic="pic"></pic-item>
   </div>
 </div>
