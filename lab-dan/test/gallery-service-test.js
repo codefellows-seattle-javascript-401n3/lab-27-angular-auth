@@ -1,9 +1,7 @@
 'use strict'
 
-// require('./lib/test-setup')
 const URL = `${__API_URL__}/api/gallery`
 const token = 'testToken'
-// const angular = require('angular')
 
 describe('gallery service tests', function () {
   beforeEach(() => {
