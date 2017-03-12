@@ -2,8 +2,13 @@
   <h1 class = "jumbotron">Welcome Home</h1>
   <create-gallery></create-gallery>
 
-  <input type="number" ng-model="homeCtrl.gallerLimit" value=100>
-
+  <div class ="search-bar-above"><b>SEARCH</b></div>
+  <div class = "gallery-count-above"><b>How many Galleries to display</b></div>
+  <input type="text" ng-model="homeCtrl.searchText" class="search-bar-below">
+  <input type="number" ng-model="homeCtrl.galleryLimit" value="100" class = "gallery-count-below">
+  <br />
+  <br />
+  <br />
   <div class = "gallery-item-container">
   <table class="table">
     <tr>
@@ -13,7 +18,7 @@
     </tr>
   </table>
     <gallery-item
-    ng-repeat="item in homeCtrl.galleries | sortGalleries: homeCtrl.gallerLimit"
+    ng-repeat="item in homeCtrl.galleries | fuzzySearch: homeCtrl.searchText | sortGalleries: homeCtrl.galleryLimit"
     gallery="item"
     delete-done="homeCtrl.galleryDeleteDone(galleryData)"
     ng-click="homeCtrl.currentGallery = item">
