@@ -9,13 +9,14 @@ const pascalcase = require('pascalcase');
 const uiRouter = require('angular-ui-router');
 const ngTouch = require('angular-touch');
 const ngAnimate = require('angular-animate');
+const ngFileUpload = require('ng-file-upload');
 
-const cfgram = angular.module('cfgram', [ngTouch, ngAnimate, uiRouter]);
+const cfgram = angular.module('cfgram', [ngTouch, ngAnimate, uiRouter, ngFileUpload]);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( path => {
   cfgram.config(context(path));
-});
+}); //this is webpack version of fs.readdir
 
 context = require.context('./view/', true, /\.js$/);
 context.keys().forEach( key => {
@@ -37,4 +38,11 @@ context.keys().forEach( key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
   cfgram.component(name, module);
+});
+
+context = require.context('./filter/', true, /\.js$/);
+context.keys().forEach( key => {
+  let name = camelcase(path.basename(key, '.js'));
+  let module = context(key);
+  cfgram.filter(name, module);
 });

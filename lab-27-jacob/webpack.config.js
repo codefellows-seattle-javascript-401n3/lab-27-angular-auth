@@ -25,11 +25,11 @@ if (production) {
       mangle: true,
       compress: {
         warnings: false
-      }
+      },
     }),
     new CleanPlugin()
   ]);
-}
+};
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
