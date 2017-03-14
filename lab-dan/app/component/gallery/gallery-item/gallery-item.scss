@@ -1,0 +1,63 @@
+@import "../../../scss/lib/vars.scss";
+
+.gallery {
+  flex: auto;
+  margin: 1em;
+  // max-width: 18em;
+  min-height: 28em;
+  box-shadow: .5em .5em 1em $primary-gray;
+  border: 1px solid $primary-gray;
+}
+
+.front:hover {
+  background: $primary-red;
+  color: $white;
+  cursor: pointer;
+}
+
+
+.front:active {
+    box-shadow: none;
+}
+
+.gallery.ng-enter {
+  transition: 2s;
+  opacity: 0;
+}
+
+.gallery.ng-enter-active {
+  opacity: 1;
+}
+
+.gallery ul {
+  list-style-position: inside;
+}
+
+.gallery li {
+  text-align: center;
+}
+
+.gallery img {
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery p {
+  text-align: center;
+  max-width: 16em;
+  margin: 1em auto;
+}
+
+.card {
+  min-width: 18em;
+  min-height: inherit;
+  padding: 1.5em;
+}
+
+.name {
+  min-height: 2em;
+}
+
+.description {
+  min-height: 3em;
+}

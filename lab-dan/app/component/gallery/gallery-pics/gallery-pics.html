@@ -1,0 +1,24 @@
+<div class="pic_view group">
+  <h2>{{ galleryPicsCtrl.gallery.name }}</h2>
+  <div class="centered_items">
+    <button
+      class="btn"
+      ng-click="galleryPicsCtrl.hidePics()">
+      Hide gallery
+    </button>
+    <button
+      class="btn"
+      ng-click="galleryPicsCtrl.changeUploadDisplayStatus()">
+      Upload pics
+    </button>
+  </div>
+  <upload-pic ng-show="galleryPicsCtrl.showUploadForm" gallery=galleryPicsCtrl.gallery></upload-pic>
+  <div ng-if="!galleryPicsCtrl.gallery.pics.length">
+    <p>
+      You don't have any pics in this gallery! You should upload some.
+    </p>
+  </div>
+  <div class="thumbnails">
+    <pic-item ng-repeat="pic in galleryPicsCtrl.gallery.pics | orderBy: '-created'" gallery=galleryPicsCtrl.gallery pic="pic"></pic-item>
+  </div>
+</div>

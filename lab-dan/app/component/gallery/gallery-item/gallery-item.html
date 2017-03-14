@@ -1,0 +1,24 @@
+<div class="gallery group">
+  <div class="card front" ng-click="galleryItemCtrl.changeDisplayPicsStatus(); $event.stopPropagation();" ng-show="!galleryItemCtrl.displayUpdateForm && !galleryItemCtrl.displayDeleteForm && !galleryItemCtrl.displayPics">
+    <img src="http://placehold.it/250">
+    <p class="name">
+      name: {{ galleryItemCtrl.gallery.name }}
+    </p>
+    <p class="description">
+      description: {{ galleryItemCtrl.gallery.desc }}
+    </p>
+    <div class="centered_items">
+      <button class="btn" type="button" name="edit" ng-click="galleryItemCtrl.changeUpdateDisplayStatus(); $event.stopPropagation();">edit</button>
+      <button class="btn" type="button" name="delete" ng-click="galleryItemCtrl.changeDeleteDisplayStatus(); $event.stopPropagation();">delete</button>
+    </div>
+  </div>
+  <div class="card" ng-show="galleryItemCtrl.displayUpdateForm">
+    <update-gallery gallery="galleryItemCtrl.gallery"></update-gallery>
+  </div>
+  <div class="card" ng-show="galleryItemCtrl.displayDeleteForm">
+    <delete-gallery gallery="galleryItemCtrl.gallery"></delete-gallery>
+  </div>
+  <div class="card" ng-show="galleryItemCtrl.displayPics">
+    <gallery-pics gallery="galleryItemCtrl.gallery"></gallery-pics>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div>
+  <form
+    name="updatePic"
+    class="pic_form"
+    ng-submit="updatePicCtrl.update()">
+    <fieldset>
+      <label for="name">name</label>
+      <input
+        name="name"
+        class="input-std"
+        type="text"
+        placeholder="{{ updatePicCtrl.pic.name }}"
+        ng-model="updatePicCtrl.picUpdate.name"
+        required>
+      <label for="desc">description</label>
+      <input
+        name="desc"
+        class="input-std"
+        type="text"
+        placeholder="{{ updatePicCtrl.pic.desc }}"
+        ng-model="updatePicCtrl.picUpdate.desc"
+        required>
+    </fieldset>
+    <div class="centered_items">
+      <button type="button" name="cancel" class="btn" ng-click="updatePicCtrl.cancel()">cancel</button>
+      <button type="submit" name="button" class="btn">update</button>
+    </div>
+  </form>
+</div>

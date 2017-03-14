@@ -1,0 +1,97 @@
+@import "../vars.scss";
+
+body {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+}
+
+header, main, footer {
+  padding: 1em;
+}
+
+header, footer {
+  flex-shrink: 0;
+}
+
+header {
+  height: 7em;
+}
+
+footer {
+  height: 4em;
+}
+
+main {
+  flex: 1;
+}
+
+.form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form h3 {
+  padding: 1em;
+}
+
+@media all and (max-width: 1250px) {
+  .form {
+    width: 75%;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .form {
+    width: 100%;
+  }
+}
+
+fieldset {
+  border: none;
+}
+
+label {
+  margin-left: .7em;
+}
+
+input {
+  display: block;
+  width: 98%;
+  min-height: 2em;
+  margin: 1em auto;
+  border: 1px solid black;
+  padding: .2em 0 .2em .4em;
+}
+
+.btn {
+  background: $secondary-gray;
+  color: white;
+  border: 1px solid black;
+  margin: .1em;
+  padding: .3em;
+  min-width: 6em;
+  padding: .4em;
+}
+
+.btn-right {
+  float: right;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.clear {
+  clear: both;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.centered_items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

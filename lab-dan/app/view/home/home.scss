@@ -1,0 +1,14 @@
+@import "../../scss/lib/vars.scss";
+
+.home {
+  background: white;
+  padding: 2em;
+}
+
+.gallery_view {
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+}

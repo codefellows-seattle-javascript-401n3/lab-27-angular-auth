@@ -1,0 +1,64 @@
+@import "../vars.scss";
+
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  background: white;
+  text-align: center;
+  overflow-wrap: break-word;
+  font-size: .9rem
+}
+
+header, footer {
+  background: $primary-red;
+}
+
+main {
+  text-align: left;
+  padding: 1em;
+  background: $white;
+}
+
+h2, h3, h4 {
+  text-align: center;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: $secondary-gray;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin-bottom: .5em;
+}
+
+form {
+  background: none;
+}
+
+button {
+  box-sizing: content-box;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+}

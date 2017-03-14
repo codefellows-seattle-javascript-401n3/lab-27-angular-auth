@@ -1,0 +1,15 @@
+@import "../../../scss/lib/vars.scss";
+
+.pic_view {
+  background: transparent;
+  min-width: 95vw;
+  min-height: 95vh;
+}
+
+.thumbnails {
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+}

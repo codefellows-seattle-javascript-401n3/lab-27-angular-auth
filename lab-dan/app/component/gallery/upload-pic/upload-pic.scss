@@ -1,0 +1,11 @@
+@import "../../../scss/lib/vars.scss";
+
+.upload_pic {
+  background: $white;
+}
+
+.drop {
+    border: 1px dashed $secondary-gray;
+    padding: 1.5em;
+    margin: 1.5em;
+}
