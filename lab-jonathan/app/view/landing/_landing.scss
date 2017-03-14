@@ -1,0 +1,52 @@
+.join-container {
+  border: 1px solid #939393;
+  position: fixed; /* or absolute */
+  top: 30%;
+  left: 35%;
+}
+
+
+h2{
+  text-align: center;
+}
+
+.galleryDiv {
+  border: 1px solid black;
+  margin-top: 1em;
+}
+
+a {
+  display: block;
+  text-align: center;
+}
+
+.join-inner h3{
+  text-align: center;
+}
+
+
+.sign-in {
+  display: block;
+  text-align: center;
+}
+
+
+.btn-std {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.4em;
+  height: 1.5em;
+  padding-bottom: 1.7em;
+}
+
+
+.field {
+  display: block;
+  margin-top: .5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border-radius: 5px;
+  height: 2em;
+}

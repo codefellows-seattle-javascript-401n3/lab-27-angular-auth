@@ -1,0 +1,17 @@
+<section class="upload-pic">
+  <form ng-submit="uploadPicCtrl.uploadPic()" novalidate>
+    <h3>Upoad a Sweet Pic</h3>
+
+    <fieldset>
+      <input class="input-std" type="text" ng-model="uploadPicCtrl.pic.name" placeholder="Name this bitch...">
+      <input class="input-std" type="text" ng-model="uploadPicCtrl.pic.desc" placeholder="Describe this mo fo...">
+    </fieldset>
+
+    <div>
+      <p class="grab-img" ngf-select ng-model="uploadPicCtrl.pic.file">Choose some random ass pic to upload.</p>
+
+      <button class="btn-std">Upload Already</button>
+    </div>
+  </form>
+
+</section>

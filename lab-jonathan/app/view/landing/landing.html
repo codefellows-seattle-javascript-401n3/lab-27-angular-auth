@@ -1,0 +1,25 @@
+<section class="landing">
+  <div class="join-container"
+    ng-if="landingCtrl.showSignup">
+    <div class="join-inner">
+      <signup></signup>
+      <h3>Already a Member?</h3>
+      <a href="/#/join#login"
+        ng-click="landingCtrl.showSignup=false">
+        Sign In Here.
+      </a>
+    </div>
+  </div>
+
+  <div class="join-container"
+    ng-if="!landingCtrl.showSignup">
+    <div class="join-inner">
+      <login></login>
+      <h3>Want to Join?</h3>
+      <a href="/#/join#signup"
+        ng-click="landingCtrl.showSignup=true">
+        Become a Member Here.
+      </a>
+    </div>
+  </div>
+</section>
