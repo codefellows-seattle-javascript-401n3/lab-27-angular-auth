@@ -6,11 +6,10 @@ const token = 'testToken'
 describe('gallery service tests', function () {
   beforeEach(() => {
     angular.mock.module('angularPhotoGallery')
-    angular.mock.inject(($rootScope, $window, $httpBackend, authService, galleryService) => {
+    angular.mock.inject(($rootScope, $window, $httpBackend, galleryService) => {
       this.$rootScope = $rootScope
       this.$window = $window
       this.$httpBackend = $httpBackend
-      this.authService = authService
       this.galleryService = galleryService
     })
     this.$window.localStorage.setItem('token', token)

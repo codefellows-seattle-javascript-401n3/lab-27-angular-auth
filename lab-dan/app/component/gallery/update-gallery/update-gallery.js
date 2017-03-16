@@ -16,7 +16,7 @@ function UpdateGalleryController ($log, $scope, galleryService) {
   self.galleryUpdate = null
 
   self.$onInit = () => {
-    $log.debug(self.gallery)
+    // $log.debug(self.gallery)
     self.galleryUpdate = {
       _id: self.gallery._id,
       name: self.gallery.name,
@@ -25,7 +25,7 @@ function UpdateGalleryController ($log, $scope, galleryService) {
   }
 
   self.updateGallery = function () {
-    $log.debug('update gallery called')
+    // $log.debug('update gallery called')
     // if (!self.galleryUpdate) return self.cancel()
     // self.galleryUpdate._id = self.gallery._id
     galleryService
@@ -39,7 +39,7 @@ function UpdateGalleryController ($log, $scope, galleryService) {
   }
 
   self.cancel = function() {
-    $log.debug('cancel called')
+    // $log.debug('cancel called')
     self.galleryUpdate = {
       _id: self.gallery._id,
       name: self.gallery.name,
