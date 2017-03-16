@@ -1,0 +1,12 @@
+<section>
+  <form ng-submit="signupCtrl.signup(signupCtrl.user)" no-validate>
+
+    <input ng-model="signupCtrl.user.username" type="text" placeholder="name" required>
+
+    <input ng-model="signupCtrl.user.email" type="text" placeholder="email">
+
+    <input ng-model="signupCtrl.user.password" type="password" placeholder="password" ng-minlength="3" required>
+
+    <input type="submit" value="sign-up">
+  </form>
+</section>
