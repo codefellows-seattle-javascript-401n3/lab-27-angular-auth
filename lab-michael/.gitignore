@@ -3,6 +3,9 @@
 
 ### DEVELOPER DELIGHT ###
 
+# ENVIRONMENT VARS #
+.env
+
 # node_modules under Dependency Directories
 
 ### Folders ###

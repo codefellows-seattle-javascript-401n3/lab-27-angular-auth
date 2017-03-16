@@ -1,5 +1,5 @@
 {
-  "name": "lab-27-ng-auth",
+  "name": "lab-29-ng-auth",
   "version": "1.0.0",
   "description": "Front-End Angular Auth",
   "main": "karma.conf.js",
@@ -10,7 +10,8 @@
     "build": "webpack",
     "build-watch": "webpack-dev-server --inline --hot",
     "test": "karma start --single-run",
-    "test-watch": "karma start"
+    "test-watch": "karma start",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
