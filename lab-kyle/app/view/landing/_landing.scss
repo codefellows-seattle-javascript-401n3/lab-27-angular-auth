@@ -1,0 +1,39 @@
+.landing {
+  color: grey * .75;
+  min-width: 60%;
+  height: 50em;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.landing-header {
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: grey * .5;
+  height: 4em;
+}
+
+.landing-footer {
+  background-color: grey;
+  height: 4em;
+}
+
+.form-bot {
+  max-width: 50%;
+  margin-right: 5%;
+
+  a {
+    color: black;
+  }
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@import '../../component/landing/signup/_signup';
+@import '../../component/landing/login/_login';

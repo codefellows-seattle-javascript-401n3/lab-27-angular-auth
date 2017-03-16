@@ -1,0 +1,44 @@
+<section class="landing">
+
+  <section>
+    <div class="landing-header">
+      <img src="../../assets/cf-logo.png">
+      <h3>cfgram</h3>
+    </div>
+
+    <div class="join-container"
+      ng-if="landingCtrl.showSignup">
+      <div class="join-inner">
+        <signup></signup>
+        <section class="align-right">
+          <div class="form-bot">
+            <span>already a member?</span>
+            <a href="/#/join#login"
+            ng-click="landingCtrl.showSignup=false">
+            <b>sign in here.</b>
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="join-container"
+      ng-if="!landingCtrl.showSignup">
+      <div class="join-inner">
+        <login></login>
+        <section class="align-right">
+          <div class="form-bot">
+            <span>want to signup?</span>
+            <a href="/#/join#signup"
+            ng-click="landingCtrl.showSignup=true">
+            sign up here.
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+</section>
+
+  <div class="landing-footer"></div>
+
+</section>
