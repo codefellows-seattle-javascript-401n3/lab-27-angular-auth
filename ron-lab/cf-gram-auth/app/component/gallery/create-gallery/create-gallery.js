@@ -19,10 +19,13 @@ function CreateGalleryController($log, galleryService) {
     });
   };
 
-  this.deleteGallery = function() {
-    galleryService.deleteGallery(this.gallery)
-    .then( () => {
-      $log.log('inside the deleteGallery method.');
-    });
-  };
+  // this.deleteGallery = function() {
+  //   $log.log('Ran the delete');
+  //   galleryService.deleteGallery(this.gallery)
+  //   .then( () => {
+  //     delete this.gallery.name;
+  //     delete this.gallery.desc;
+  //     $log.log('inside the deleteGallery method.');
+  //   });
+  // };
 }

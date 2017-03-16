@@ -39,7 +39,7 @@ module.exports = {
   plugins,
   output: {
     path: 'build',
-    filename: 'bundle.js'
+    filename: `${__dirname}/bundle.js`
   },
   sassLoader: {
     includePaths: [`${__dirname}/app/scss/`]
@@ -49,11 +49,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html-loader'
       },
       {
         test: /\.(woff|tt|svg|eot).*/,

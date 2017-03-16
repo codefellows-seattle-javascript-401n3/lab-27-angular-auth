@@ -1,0 +1,44 @@
+@import "../theme/vars";
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  background-color: $btn-primary * 2;
+  width: 95%;
+  padding: .5em;
+  color: white;
+}
+
+.header-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-header, .btn-std, .btn-std-create-gallery, .btn-std-delete {
+  width: 6em;
+  height: 3em;
+  padding: 1% 5%;
+  background: $btn-primary;
+  color: $white;
+  font-size: 4vw;
+  border: none;
+  border-radius: $btn-radius;
+  cursor: pointer;
+  transition: 350ms all;
+  margin: 1em;
+
+  &:hover {
+    background: $brand-secondary;
+    color: $btn-primary;
+  }
+}
+.btn-header {
+  background: $btn-primary * 6;
+  color: $btn-primary * 3;
+}
+
+.cfgram-header {
+  margin-top: .675em;
+}

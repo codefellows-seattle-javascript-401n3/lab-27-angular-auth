@@ -1,0 +1,38 @@
+
+<li class="gallery-item">
+  <div class="gallery-container" class="current-item" ng-if="!galleryItemCtrl.showEditGallery">
+    <div>
+      <span class="item-label">name:</span>
+      <span>{{ galleryItemCtrl.gallery.name }}</span>
+    </div>
+
+    <div>
+      <span class="item-label">description:</span>
+      <span>{{ galleryItemCtrl.gallery.desc }}</span>
+    </div>
+    <button class="btn-std" ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
+    <button class="btn-std" ng-click="galleryItemCtrl.deleteGallery()">delete</button>
+  </div>
+
+  <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
+
+</li>
+
+<!-- <div class="gallery-item">
+  <div class="gallery-container" class="current-item" ng-if="!galleryItemCtrl.showEditGallery">
+    <div>
+      <div class="item-label">name:</div>
+      <div>{{ galleryItemCtrl.gallery.name }}</div>
+    </div>
+
+    <div>
+      <div class="item-label">description:</div>
+      <div>{{ galleryItemCtrl.gallery.desc }}</div>
+    </div>
+
+    <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
+
+    <button class="btn-std" ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
+    <button class="btn-std" ng-click="galleryItemCtrl.deleteGallery()">delete</button>
+  </div>
+</div> -->
