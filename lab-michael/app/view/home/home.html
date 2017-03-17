@@ -1,0 +1,16 @@
+<section class="home">
+  <h2>welcome home.</h2>
+  <p>
+    <create-gallery></create-gallery>
+      <button class="btn-std" ng-click="deleteGallery()">Delete</button>
+
+    <ul>
+      <li ng-repeat="gallery in homeCtrl.galleries">
+        <hr>
+          <p>Gallery ID: {{ gallery._id }}</p>
+          <p>Name: {{ gallery.name }}</p>
+          <span>Description: {{ gallery.desc }}</span>
+
+      </li>
+    </ul>
+</section>
