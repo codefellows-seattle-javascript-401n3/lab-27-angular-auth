@@ -2,7 +2,7 @@
   "name": "lab-27",
   "version": "1.0.0",
   "description": "This is an example app setting up angular auth",
-  "main": "entry.js",
+  "main": "server.js",
   "author": "Dan Peters",
   "license": "MIT",
   "scripts": {
