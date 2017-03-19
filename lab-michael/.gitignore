@@ -3,11 +3,12 @@
 
 ### DEVELOPER DELIGHT ###
 
-# node_modules under Dependency Directories
-
-### Folders ###
-
+# Folders #
 build/
+node_modules/
+
+# Files #
+.env
 
 ### Linux ###
 *~
