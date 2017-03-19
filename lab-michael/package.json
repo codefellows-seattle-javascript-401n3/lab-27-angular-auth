@@ -10,7 +10,8 @@
     "build": "webpack",
     "build-watch": "webpack-dev-server --inline --hot",
     "test": "karma start --single-run",
-    "test-watch": "karma start"
+    "test-watch": "karma start",
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.6.1",
+    "eslint": "^3.18.0",
     "jasmine-core": "^2.5.2",
     "karma": "^1.4.0",
     "karma-jasmine": "^1.1.0",
