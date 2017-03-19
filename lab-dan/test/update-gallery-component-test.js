@@ -42,11 +42,32 @@ describe('update gallery component test', function () {
       this.sandbox.stub(this.galleryService, 'updateGallery').resolves()
     })
 
-    it('should call the galleryService', () => {
+    it('should call the galleryService updateGallery method', () => {
       let updateComponent = this.$componentController('updateGallery')
       updateComponent.updateGallery()
       this.$scope.$apply()
       expect(this.galleryService.updateGallery.calledOnce).toBeTruthy()
+    })
+  })
+
+  describe('cancel update event', () => {
+    beforeEach(() => {
+      this.testBindings = {
+        gallery: {
+          _id: 1234,
+          name: 'TestBinding',
+          desc: 'This is to test the bindings'
+        }
+      }
+      this.cancel = this.sandbox.spy(this.$scope, '$emit')
+    })
+
+    it('should emit a cancel event', () => {
+
+      let updateComponent = this.$componentController('updateGallery', {$scope: this.$scope}, this.testBindings)
+      updateComponent.$onInit()
+      updateComponent.cancel()
+      expect(this.cancel.calledOnce).toBeTruthy()
     })
   })
 })
