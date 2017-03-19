@@ -9,7 +9,8 @@
     "build": "webpack --display-error-details",
     "watch": "webpack-dev-server --inline --hot",
     "test": "karma start --single-run",
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "webpack && node server.js"
   },
   "dependencies": {
     "angular": "^1.6.2",
