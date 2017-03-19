@@ -1,0 +1,4 @@
+// Don't need to check these locations
+**/node_modules/*
+**/*.min.js
+**/build/*
