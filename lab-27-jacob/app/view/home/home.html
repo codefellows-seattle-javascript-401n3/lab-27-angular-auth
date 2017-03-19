@@ -9,7 +9,6 @@
   <br />
   <br />
   <br />
-  <div class = "gallery-item-container">
   <table class="table">
     <tr>
       <th scope="row">NAME</th>
@@ -17,13 +16,15 @@
       <th scope="row">ID</th>
     </tr>
   </table>
-    <gallery-item
-    ng-repeat="item in homeCtrl.galleries | fuzzySearch: homeCtrl.searchText | sortGalleries: homeCtrl.galleryLimit"
-    gallery="item"
-    delete-done="homeCtrl.galleryDeleteDone(galleryData)"
-    ng-click="homeCtrl.currentGallery = item">
-    </gallery-item>
-  </div>
-
+  <uib-accordion close-others="oneAtATime">
+  <div uib-accordion-group class="panel-default" heading="TOGGLE GALLERIES">
+  <gallery-item
+  ng-repeat="item in homeCtrl.galleries | fuzzySearch: homeCtrl.searchText | sortGalleries: homeCtrl.galleryLimit"
+  gallery="item"
+  delete-done="homeCtrl.galleryDeleteDone(galleryData)"
+  ng-click="homeCtrl.currentGallery = item">
+</gallery-item>
+</div>
+</uib-accordion>
   <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
 </section>
