@@ -1,22 +1,20 @@
 <div class="galleryDiv">
-  <li class="gallery-up">
-    <div class="" ng-if="!galleryItemCtrl.showEditGallery">
-      <h3> {{ galleryUpCtrl.gallery.name | uppercase }}</h3>
-      <span> {{ galleryUpCtrl.gallery.desc | lowercase }}</span>
-      <h4>Created On:</h4>
-      <span> {{ galleryUpCtrl.gallery.created | date: medium }}</span>
-      <edit-gallery ng-if='galleryUpCtrl.showEditGallery' gallery="galleryUpCtrl.gallery"></edit-gallery>
+  <uib-accordion>
+    <li uib-accordion-group class="gallery-up panel-default" heading="{{galleryUpCtrl.gallery.name | uppercase}}">
 
-      <button class="btn-std" ng-click="galleryItemCtrl.showEditGallery=!galleryItemCtrl.showEditGallery" type="button" name="edit">Edit</button>
+      <div class="" ng-if="!galleryItemCtrl.showEditGallery">
+        <h3>{{ galleryUpCtrl.gallery.name | uppercase }}</h3>
+        <span> {{ galleryUpCtrl.gallery.desc | lowercase }}</span>
+        <h4>Created On:</h4>
+        <span> {{ galleryUpCtrl.gallery.created | date: medium }}</span>
+        <edit-gallery ng-if='galleryUpCtrl.showEditGallery' gallery="galleryUpCtrl.gallery"></edit-gallery>
 
-      <button class="btn-std" ng-click="galleryItemCtrl.deleteGallery()" type="button" name="delete">Delete</button>
+        <button class="btn-std" ng-click="galleryItemCtrl.showEditGallery=!galleryItemCtrl.showEditGallery" type="button" name="edit">Edit</button>
 
-      <thumbnail-container gallery="galleryUpCtrl.gallery"></thumbnail-container>
-    </div>
+        <button class="btn-std" ng-click="galleryItemCtrl.deleteGallery()" type="button" name="delete">Delete</button>
 
-
-  </li>
-
-
-
+        <thumbnail-container gallery="galleryUpCtrl.gallery"></thumbnail-container>
+      </div>
+    </li>
+  </uib-accordion>
 </div>

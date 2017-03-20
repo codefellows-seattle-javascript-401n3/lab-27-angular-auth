@@ -1,12 +1,12 @@
 
 <section class="home">
   <h2>Welcome Home.</h2>
-  <input type="text" ng-model="homeCtrl.gallerySearchName" placeholder="Search">
+  <input type="text" class="form-control" ng-model="homeCtrl.gallerySearchName" placeholder="Search">
   <create-gallery></create-gallery>
   <div>
     <ul>
-      <gallery-up ng-repeat="item in homeCtrl.galleries | gallerySearch: homeCtrl.gallerySearchName | orderBy: 'name' | limitTo: 10 | date : medium" gallery="item" ng-click="homeCtrl.currentGallery = item">
-      </gallery-up>
+        <gallery-up ng-repeat="item in homeCtrl.galleries | gallerySearch: homeCtrl.gallerySearchName | orderBy: 'name' | limitTo: 10 | date : medium" gallery="item" pic="item" ng-click="homeCtrl.currentGallery = item">
+        </gallery-up>
     </ul>
   </div>
 

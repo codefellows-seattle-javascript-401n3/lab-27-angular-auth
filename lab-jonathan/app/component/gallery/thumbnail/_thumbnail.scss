@@ -1,10 +1,13 @@
 @import "../../../scss/lib/theme/vars";
 
 .thumbnail {
-  margin-top: $gutter-std * 2;
+  margin-top: $gutter-std;
+  width: 30%;
+  display: inline-block;
+
 
   img {
-    width: 100%;
+    width: 40%;
     margin-bottom: $gutter-sm;
   }
 
