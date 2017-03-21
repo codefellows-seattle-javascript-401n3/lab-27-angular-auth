@@ -1,4 +1,7 @@
+@import "../../../scss/lib/theme/_vars";
+
 footer {
-  height: 8vw;
-  background-color: darkgray;
+  height: 12vw;
+  background: $brand-secondary;
+  margin-top: $gutter-std * 2;
 }

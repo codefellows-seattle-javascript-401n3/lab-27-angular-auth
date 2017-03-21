@@ -1,5 +1,6 @@
 <!-- <li class="gallery-item"> -->
   <div class="current-item" ng-if="!galleryItemCtrl.showEditGallery">
+    <hr />
     <p>
       <span class="item-label">Name:</span>
       <span>{{ galleryItemCtrl.gallery.name }}</span>
@@ -14,6 +15,5 @@
 <br>
 <div class="mod-btns">
     <button class=btn-std ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">Make edits</button>
-    <button ng-click="galleryItemCtrl.deleteGallery()">Delete</button>
+    <button class="btn-std del-btn" ng-click="galleryItemCtrl.deleteGallery()">Delete</button>
 </div>
-<hr />
