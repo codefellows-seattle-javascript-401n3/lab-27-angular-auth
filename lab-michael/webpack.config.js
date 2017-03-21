@@ -6,7 +6,7 @@ const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const API_URL = process.env.API_URL || 'http://localhost:3000';
+const API_URL = process.env.API_URL || 'http://localhost:3000'
 const production = process.env.NODE_ENV === 'production';
 
 dotenv.load();
@@ -16,8 +16,8 @@ let plugins = [
   new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
-    __DEBUG__: JSON.stringify(!production),
-  }),
+    __DEBUG__: JSON.stringify(!production)
+  })
 ];
 
 if (production) {
@@ -25,47 +25,47 @@ if (production) {
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {
-        warnings: false,
+        warnings: false
       },
     }),
-    new CleanPlugin(),
+    new CleanPlugin()
   ]);
-}
+};
 
 module.exports = {
   entry: `${__dirname}/app/index.js`,
-  devtool: production ? false : 'eval',
+  devtool: production ? false : 'sourceMap',
   plugins,
   output: {
     path: 'build',
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   sassLoader: {
-    includePaths: [`${__dirname}/app/scss/`],
+    includePaths: [`${__dirname}/app/scss/`]
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel'
       },
       {
         test: /\.html$/,
-        loader: 'html',
+        loader: 'html'
       },
       {
         test: /\.(woff|tt|svg|eot).*/,
-        loader: 'url?limit=10000&name=image/[hash].[ext]',
+        loader: 'url?limit=10000&name=image/[hash].[ext]'
       },
       {
         test: /\.(jpg|jpeg|svg|bmp|tiff|gif|png)$/,
-        loader: 'url?limit=10000&name=image/[hash].[ext]',
+        loader: 'url?limit=10000&name=image/[hash].[ext]'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap'),
-      },
-    ],
-  },
+        loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap')
+      }
+    ]
+  }
 };

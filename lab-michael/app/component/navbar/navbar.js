@@ -5,7 +5,7 @@ require('./_navbar.scss');
 module.exports = {
   template: require('./navbar.html'),
   controller: ['$log', '$location', '$rootScope', 'authService', NavbarController],
-  controllerAs: 'navbarCtrl'
+  controllerAs: 'navbarCtrl',
 };
 
 function NavbarController($log, $location, $rootScope, authService) {
