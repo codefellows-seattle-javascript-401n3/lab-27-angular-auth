@@ -5,14 +5,16 @@ module.exports = {
   controller: ['$log', 'galleryService',EditGalleryController],
   controllerAs: 'editGalleryCtrl',
   bindings: {
-    gallery: '<'
-  }
+    gallery: '<',
+  },
 };
 
 function EditGalleryController($log, galleryService) {
   $log.debug('EditGalleryController');
-
-  this.updateGallery = function() {
-    galleryService.updateGallery(this.gallery._id, this.gallery);
-  }
+  this.$onInit = () => {
+    this.updateGallery = function() {
+      console.log('inside updateGallery');
+      galleryService.updateGallery(this.gallery._id, this.gallery);
+    };
+  };
 }

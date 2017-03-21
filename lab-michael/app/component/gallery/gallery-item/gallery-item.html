@@ -1,18 +1,19 @@
-<li class="gallery-item">
+<!-- <li class="gallery-item"> -->
   <div class="current-item" ng-if="!galleryItemCtrl.showEditGallery">
-    <div>
-      <span class="item-label">name:</span>
+    <p>
+      <span class="item-label">Name:</span>
       <span>{{ galleryItemCtrl.gallery.name }}</span>
-    </div>
+    </p>
 
     <div>
-      <span class="item-label">description:</span>
+      <span class="item-label">Description:</span>
       <span>{{ galleryItemCtrl.gallery.desc }}</span>
     </div>
   </div>
-
   <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
-
-  <span ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">Make edits</span>
-  <span ng-click="galleryItemCtrl.deleteGallery()">Delete</span>
-</li>
+<br>
+<div class="mod-btns">
+    <span ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">Make edits</span>
+    <span ng-click="galleryItemCtrl.deleteGallery()">Delete</span>
+</div>
+<hr />

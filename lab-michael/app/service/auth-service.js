@@ -13,7 +13,7 @@ function authService($q, $log, $http, $window){
 
     if (! _token) {
       return $q.reject(new Error('no token'));
-    };
+    }
 
     $window.localStorage.setItem('token', _token);
     token = _token;
@@ -24,7 +24,7 @@ function authService($q, $log, $http, $window){
     $log.debug('authService.getToken');
     if (token) {
       return $q.resolve(token);
-    };
+    }
 
     token = $window.localStorage.getItem('token');
     if (token) return $q.resolve(token);
@@ -47,7 +47,7 @@ function authService($q, $log, $http, $window){
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-      }
+      },
     };
 
     return $http.post(url, user, config)
@@ -72,7 +72,7 @@ function authService($q, $log, $http, $window){
       headers: {
         Accept: 'application/json',
         Authorization: `Basic ${base64}`,
-      }
+      },
     };
 
     return $http.get(url, config)

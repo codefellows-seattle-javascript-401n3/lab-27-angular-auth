@@ -19,9 +19,9 @@ function galleryService($q, $log, $http, authService) {
           Accept: 'application/json',
           // Stringified for the dash
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      }
+          Authorization: `Bearer ${token}`,
+        },
+      };
       return $http.post(url, gallery, config);
     })
     .then( res => {
@@ -33,8 +33,8 @@ function galleryService($q, $log, $http, authService) {
     .catch(err => {
       $log.error(err.message);
       return $q.reject(err);
-    })
-  }
+    });
+  };
   service.fetchGalleries = function() {
     $log.debug('galleryService.fetchGalleries()');
 
@@ -44,7 +44,7 @@ function galleryService($q, $log, $http, authService) {
       let config = {
         headers: {
           Accept: 'application/json',
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       };
       return $http.get(url, config);
@@ -56,11 +56,37 @@ function galleryService($q, $log, $http, authService) {
     })
     .catch( err => {
       $log.error(err.message);
-      return $q.reject(err)
+      return $q.reject(err);
     });
 
   };
-  service.deleteGallery = function(gallery, galleryID) {
+  service.updateGallery = function(galleryID, updateGallery) {
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/gallery/${galleryID}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      };
+      return $http.put(url, updateGallery, config);
+    })
+    .then ( res => {
+      for(let i= 0; i < service.galleries.length; i++) {
+        if(service.galleries[i]._id === galleryID) {
+          service.galleries[i] = res.data;
+        }
+      }
+    })
+    .catch(err => {
+      $log.log(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.deleteGallery = function(galleryID) {
     $log.debug('galleryService.deleteGalleries()');
 
     return authService.getToken()
@@ -70,16 +96,18 @@ function galleryService($q, $log, $http, authService) {
       let config = {
         headers: {
           Accept: 'application/json',
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       };
       return $http.delete(url, config);
     })
     .then(() => {
-      $log.log('Gallery ');
-      let i =service.galleries.indexOf(gallery);
-      service.galleries.splice(i,1);
-      return $q.resolve('It was Success');
+      $log.log('Gallery Deleted');
+      for(let i = 0;i < service.galleries.length; i++) {
+        if(service.galleries[i]._id === galleryID) {
+          service.galleries.splice(i,1);
+        }
+      }
     })
     .catch( err => {
       $log.error(err.message);
