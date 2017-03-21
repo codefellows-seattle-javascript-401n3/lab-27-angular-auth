@@ -1,0 +1,12 @@
+<section class="home">
+  <br>
+    <create-gallery></create-gallery>
+      <div class="gallery-items-container">
+          <gallery-item
+           ng-repeat="item in homeCtrl.galleries"
+           gallery="item"
+           delete-done="homeCtrl.galleryDeleteDone(galleryData)"
+           ng-click="homeCtrl.currentGallery = item">
+         </gallery-item>
+      </div>
+</section>
